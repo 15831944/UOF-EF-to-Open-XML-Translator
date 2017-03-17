@@ -1,0 +1,23 @@
+HKCR
+{
+	UofTranslator2010.ConvPrefs.1 = s 'ConvPrefs Class'
+	{
+		CLSID = s '{9878A8B9-2BA5-4A47-894B-D3D401304046}'
+	}
+	UofTranslator2010.ConvPrefs = s 'ConvPrefs Class'
+	{
+		CLSID = s '{9878A8B9-2BA5-4A47-894B-D3D401304046}'
+		CurVer = s 'UofTranslator2010.ConvPrefs.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {9878A8B9-2BA5-4A47-894B-D3D401304046} = s 'ConvPrefs Class'
+		{
+			ProgID = s 'UofTranslator2010.ConvPrefs.1'
+			VersionIndependentProgID = s 'UofTranslator2010.ConvPrefs'
+			ForceRemove 'Programmable'
+			LocalServer32 = s '%MODULE%'
+			'TypeLib' = s '{AAE59A92-0CFE-4DC7-B386-35DE786B90FB}'
+		}
+	}
+}

@@ -1,0 +1,23 @@
+HKCR
+{
+	UofTranslator2010.PresentationConvert.1 = s 'PresentationConverter2010 Class'
+	{
+		CLSID = s '{AEC7E6B1-3D6E-41E0-A442-34A0D6995DA4}'
+	}
+	UofTranslator2010.PresentationConverter = s 'PresentationConverter2010 Class'
+	{
+		CLSID = s '{AEC7E6B1-3D6E-41E0-A442-34A0D6995DA4}'
+		CurVer = s 'UofTranslator2010.PresentationConvert.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {AEC7E6B1-3D6E-41E0-A442-34A0D6995DA4} = s 'PresentationConverter2010 Class'
+		{
+			ProgID = s 'UofTranslator2010.PresentationConvert.1'
+			VersionIndependentProgID = s 'UofTranslator2010.PresentationConverter'
+			ForceRemove 'Programmable'
+			LocalServer32 = s '%MODULE%'
+			'TypeLib' = s '{AAE59A92-0CFE-4DC7-B386-35DE786B90FB}'
+		}
+	}
+}

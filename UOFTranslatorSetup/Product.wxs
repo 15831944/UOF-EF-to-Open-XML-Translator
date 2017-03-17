@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+  <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:util="http://schemas.microsoft.com/wix/UtilExtension" 
+       xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.microsoft.com/wix/2006/wi WiX.xsd">
+
+    <Product Id="86FDA2CC-6F58-4289-AE15-F7313FB0B9BE" Name="UOF-EF/OpenXML Translator5.1" Language="1033" Codepage="1252" Version="5.1.0.0" 
+           Manufacturer="Microsoft UOF Working Group" UpgradeCode="c57cc0e5-f40f-40d3-b173-03db275ee251">
+		
+      <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" Languages="1033" SummaryCodepage="1252" />
+      <Media Id="1" Cabinet="media1.cab" EmbedCab="yes" />
+      <UIRef Id="WixUI_FeatureTree" />
+
+      <!--user guid name-->
+      <WixVariable Id="WordTemplateFeature" Value="Word Templates"/>
+      <WixVariable Id="CoreFeature" Value="Core Features"/>
+      <WixVariable Id="WindowsShellExtension" Value="Windows Shell Extension"/>
+      <WixVariable Id ="CommandLineToolTitle" Value="UOF Translator Command Line Tools"/>
+      <WixVariable Id="UserGuideName" Value="UOFTranslator51UserGuide.docx"/>
+      <WixVariable Id="InstallOfficeMessage" Value="Please install Microsoft Office 2010 "/>
+      <WixVariable Id="InstallOffice15Message" Value="Please install Microsoft Office 2013 "/>
+      <WixVariable Id="InstallNETFXMessage" Value="Please install .NET Framework 4.0"/>
+
+
+      <PropertyRef Id="NETFRAMEWORK40FULL"/>
+      <PropertyRef Id="NETFRAMEWORK40FULLINSTALLROOTDIR"/>
+
+      <!--office version-->
+      <Property Id="OFFICEVERSION" Secure="yes">
+        <RegistrySearch Id="RegSearch_OfficeVersion" Type="raw" Key="Software\Microsoft\Office\14.0\Common\InstallRoot" Name="Path" Root="HKLM" />
+      </Property>
+      <Property Id="OFFICEVERSION15" Secure="yes">
+        <RegistrySearch Id="RegSearch_OfficeVersion15" Type="raw" Key="Software\Microsoft\Office\15.0\Common\InstallRoot" Name="Path" Root="HKLM" />
+      </Property>
+
+
+      <!--Check Office 14-->
+      <!--<Condition Message="!(wix.InstallOfficeMessage)nnn[NETFRAMEWORK40FULLINSTALLROOTDIR]">
+        <![CDATA[Installed OR OFFICEVERSION]]>
+      </Condition>-->
+
+      <!--Check .NET Framework 4.0-->
+      <Condition Message="!(wix.InstallNETFXMessage)">
+        <![CDATA[Installed OR NETFRAMEWORK40FULL]]>
+      </Condition>
+
+      <Feature Id="WindowsShellExt" Title ="!(wix.WindowsShellExtension)" Level="1" >
+        <ComponentGroupRef Id="AssociateFileType"/>
+        <ComponentGroupRef Id="WindowsShellExts"/>
+      </Feature>
+
+      <Feature Id="CoreFeature" Title="!(wix.CoreFeature)" Absent="disallow" Level="1" AllowAdvertise="no">
+        <ComponentGroupRef Id="LogFiles"/>
+        <ComponentGroupRef Id="UserGuid"/>
+        <ComponentGroupRef Id="Shortcut"/>
+        <ComponentGroupRef Id="OtherNecessaryFiles"/>
+        <ComponentGroupRef Id="CoreRegistryItems"/>
+        <ComponentGroupRef Id="LanguageResource"/>
+
+        <ComponentGroupRef Id ="WordTemplatesRef"/>
+        <ComponentGroupRef Id="TemplateRegistryItems" />
+        <!--<ComponentGroupRef Id="WordTemplateDescription"/>
+        <ComponentGroupRef Id="TemplateRegistryItems"/>-->
+      </Feature>
+
+      <Feature Id="WordTemplate" Title="!(wix.WordTemplateFeature)" Level="1" >
+
+        <ComponentGroupRef Id="AllWordTemplates"/>
+        <!--<ComponentGroupRef Id="TemplateRegistryItems" />-->
+      </Feature>
+
+      <Feature Id ="CommandLineTool" Title="!(wix.CommandLineToolTitle)" Level="1" >
+        <ComponentGroupRef Id="CommandLineTools"/>
+      </Feature>
+
+      <InstallExecuteSequence>
+
+        <!--register uof type in office-->
+        <Custom Action="SetRegisterFileTypeCommandName" After="CostFinalize"/>
+        <Custom Action="RegisterFileType" Before="InstallFinalize">
+          NOT Installed
+        </Custom>
+        <!--unregister uof type in office-->
+        <Custom Action="SetUnRegisterFileTypeCommandName" After="CostFinalize"/>
+        <Custom Action="UnRegisterFileType" Before="RemoveFiles">
+          REMOVE
+        </Custom>
+
+        <!--register window shell extension-->
+        <Custom Action="SetWindowsShellExtCommandName" After="CostFinalize"/>
+        <Custom Action="WindowsShellExtension" Before="InstallFinalize">
+          <![CDATA[&WindowsShellExt=3 AND NOT (!WindowsShellExt=3)]]>
+        </Custom>
+
+        <!--unregister window shell extension-->
+        <Custom Action="SetUnWindowsShellExtCommandName" After="CostFinalize"/>
+        <Custom Action="UnWindowsShellExtension" Before="RemoveFiles">
+          REMOVE AND <![CDATA[(!WindowsShellExt=3)]]>
+        </Custom>
+
+
+        <!--word template-->
+        <Custom Action="SetModifyTemplateDataValue" Before="ModifyWordTemplate" />
+        <Custom Action="ModifyWordTemplate" Before="InstallFinalize">
+          <!--(NOT REMOVE) AND <![CDATA[&WordTemplate=3]]>-->
+          NOT REMOVE
+        </Custom>
+
+        <!--support x64 office-->
+        <!--register office x64-->
+        <Custom Action="SupportX64Office" After="CostFinalize"/>
+
+        <!--unregister office x64-->
+        <Custom Action="UnSupportX64Office" Before="RemoveFiles">REMOVE</Custom>
+
+
+
+      </InstallExecuteSequence>
+      
+	</Product>
+
+
+</Wix>

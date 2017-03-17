@@ -1,0 +1,91 @@
+<html>
+<head>
+	<title>Settings</title>
+	<style>
+		body
+		{ 
+			width: 240;
+			height: 170;
+            font-family: Tahoma; font-size: 10pt;
+		}
+	</style>
+	
+	<script type="text/javascript">
+	function init() 
+	{
+	    // Load settings
+		path1.value = System.Gadget.Settings.read("path1");
+		path2.value = System.Gadget.Settings.read("path2");
+		path3.value = System.Gadget.Settings.read("path3");
+		args1.value=System.Gadget.Settings.read("args1");
+		args2.value=System.Gadget.Settings.read("args2");
+		args3.value=System.Gadget.Settings.read("args3");
+		ext1.value=System.Gadget.Settings.read("ext1");
+		ext2.value=System.Gadget.Settings.read("ext2");
+		ext3.value=System.Gadget.Settings.read("ext3");
+	}
+
+	System.Gadget.onSettingsClosing = SettingsClosing;
+	function SettingsClosing(event)
+	{
+	    // Save the settings if the user clicked OK
+ 		if (event.closeAction == event.Action.commit) 
+ 		{
+			System.Gadget.Settings.write("path1", path1.value);
+			System.Gadget.Settings.write("path2", path2.value);
+			System.Gadget.Settings.write("path3", path3.value);
+			System.Gadget.Settings.write("args1", args1.value);
+			System.Gadget.Settings.write("args2", args2.value);
+			System.Gadget.Settings.write("args3", args3.value);
+			System.Gadget.Settings.write("ext1", ext1.value);
+			System.Gadget.Settings.write("ext2", ext2.value);
+			System.Gadget.Settings.write("ext3", ext3.value);
+		}
+		event.cancel = false;
+	}
+	function setPath1()
+	{
+		var oItem = System.Shell.chooseFile(true, "All Files:*.*::", "", "");
+		path1.value = oItem.path;
+	}
+	function setPath2()
+	{
+		var oItem = System.Shell.chooseFile(true, "All Files:*.*::", "", "");
+		path2.value = oItem.path;
+	}
+	function setPath3()
+	{
+		var oItem = System.Shell.chooseFile(true, "All Files:*.*::", "", "");
+		path3.value = oItem.path;
+	}
+	</script>
+
+</head>
+<body onload="init()">
+	You have 3 profiles. Each profile allows you to use a different console application (with parameters).
+	<br/>
+	<b>Profile 1:</b><br/>
+    Application full name:<br/>
+    <input type="text" id="path1" size="20" /> <input type="button" value="Browse" onclick="setPath1()"/><br />
+    Arguments<br />
+	<input type="text" id="args1" size="20" /><br />
+    Extension (ex: "zip")
+	<input type="text" id="ext1" size ="4"/><br />
+	<br/>  
+	<b>Profile 2:</b><br/>
+    Application full name:<br/>
+    <input type="text" id="path2" size="20" /><input type="button" value="Browse" onclick="setPath2()"/><br />
+    Arguments<br />
+	<input type="text" id="args2" size="20" /><br />
+	Extension (ex: "zip")
+	<input type="text" id="ext2" size ="4"/><br />
+	<br/>
+	<b>Profile 3:</b><br/>
+    Application full name:<br/>
+    <input type="text" id="path3" size="20" /><input type="button" value="Browse" onclick="setPath3()"/><br /><br />
+    Arguments<br />
+	<input type="text" id="args3" size="20" /><br />	
+	Extension (ex: "zip")
+	<input type="text" id="ext3" size ="4"/><br />
+</body>
+</html>

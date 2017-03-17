@@ -1,0 +1,23 @@
+HKCR
+{
+	UofTranslator2010.SpreadsheetConverte.1 = s 'SpreadsheetConverter2010 Class'
+	{
+		CLSID = s '{ADBE850B-D37F-4422-B66E-88471BDC1B20}'
+	}
+	UofTranslator2010.SpreadsheetConverter2 = s 'SpreadsheetConverter2010 Class'
+	{
+		CLSID = s '{ADBE850B-D37F-4422-B66E-88471BDC1B20}'
+		CurVer = s 'UofTranslator2010.SpreadsheetConverte.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {ADBE850B-D37F-4422-B66E-88471BDC1B20} = s 'SpreadsheetConverter2010 Class'
+		{
+			ProgID = s 'UofTranslator2010.SpreadsheetConverte.1'
+			VersionIndependentProgID = s 'UofTranslator2010.SpreadsheetConverter2'
+			ForceRemove 'Programmable'
+			LocalServer32 = s '%MODULE%'
+			'TypeLib' = s '{AAE59A92-0CFE-4DC7-B386-35DE786B90FB}'
+		}
+	}
+}

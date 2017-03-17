@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+  <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:util="http://schemas.microsoft.com/wix/UtilExtension" 
+       xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.microsoft.com/wix/2006/wi WiX.xsd">
+
+    <Product Id="F06F9C5E-51A0-4487-BA34-AC0AA95CC546" Name="UOF-EF/OpenXML Translator4.1" Language="1033" Version="4.1.0.0" 
+           Manufacturer="Microsoft UOF Working Group" UpgradeCode="c57cc0e5-f40f-40d3-b173-03db275ee251">
+		
+      <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+      <Media Id="1" Cabinet="media1.cab" EmbedCab="yes"/>
+      <UIRef Id="WixUI_FeatureTree"/>
+
+      <!--user guid name-->
+      <WixVariable Id="WordTemplateFeature" Value="Word Templates"/>
+      <WixVariable Id="CoreFeature" Value="Core Features"/>
+      <WixVariable Id="WindowsShellExtension" Value="Windows Shell Extension"/>
+      <WixVariable Id ="CommandLineToolTitle" Value="UOF Translator Command Line Tools"/>
+      <WixVariable Id="UserGuideName" Value="UOFTranslator41UserGuide.docx"/>
+      <WixVariable Id="InstallWord2013" Value="Please install Microsoft Word 2013 "/>
+      <WixVariable Id="InstallExcel2013" Value="Please install Microsoft Excel 2013 "/>
+      <WixVariable Id="InstallPPT2013" Value="Please install Microsoft PowerPoint 2013 "/>
+      <WixVariable Id="InstallNETFXMessage" Value="Please install .NET Framework 4.0"/>
+      
+      <PropertyRef Id="NETFRAMEWORK40FULL"/>
+
+      <!--word version-->
+      <Property Id="WORDVERSION" Secure="yes">
+        <RegistrySearch Id="RegSearch_WordVersion" Type="raw" Key="Word.Application.15" Root="HKCR" />
+      </Property>
+      
+      <!--excel version-->
+      <Property Id="EXCELVERSION" Secure="yes">
+        <RegistrySearch Id="RegSearch_ExcelVersion" Type="raw" Key="Excel.Application.15" Root="HKCR" />
+      </Property>
+
+      <!--ppt version-->
+      <Property Id="PPTVERSION" Secure="yes">
+        <RegistrySearch Id="RegSearch_PPTVersion" Type="raw" Key="PowerPoint.Application\CurVer" Root="HKCR" />
+      </Property>
+
+      <!--Check Word 15-->
+      <Condition Message="!(wix.InstallWord2013)">
+        <![CDATA[Installed OR WORDVERSION]]>
+      </Condition>
+
+      <!--Check excel 15-->
+      <Condition Message="!(wix.InstallExcel2013)">
+        <![CDATA[Installed OR EXCELVERSION]]>
+      </Condition>
+
+      <!--Check ppt 15-->
+      <Condition Message="!(wix.InstallPPT2013)">
+        <![CDATA[Installed OR (PPTVERSION AND PPTVERSION = "PowerPoint.Application.15")]]>
+      </Condition>
+      
+      <!--Check .NET Framework 4.0-->
+      <Condition Message="!(wix.InstallNETFXMessage)">
+        <![CDATA[Installed OR NETFRAMEWORK40FULL]]>
+      </Condition>
+
+      
+
+      <Feature Id="WindowsShellExt" Title ="!(wix.WindowsShellExtension)" Level="1">
+        <ComponentGroupRef Id="AssociateFileType"/>
+        <ComponentGroupRef Id="WindowsShellExts"/>
+      </Feature>
+      
+      <Feature Id="CoreFeature" Title="!(wix.CoreFeature)" Absent="disallow" Level="1" AllowAdvertise="no">
+        <ComponentGroupRef Id="LogFiles"/>
+        <ComponentGroupRef Id="UserGuid"/>
+        <ComponentGroupRef Id="Shortcut"/>
+        <ComponentGroupRef Id="OtherNecessaryFiles"/>
+        <ComponentGroupRef Id="CoreRegistryItems"/>
+        <ComponentGroupRef Id="LanguageResource"/>
+      </Feature>
+
+      <Feature Id="WordTemplate" Title="!(wix.WordTemplateFeature)" Level="1">
+        <ComponentGroupRef Id="AllWordTemplates"/>
+        <ComponentGroupRef Id="TemplateRegistryItems"/>
+		  </Feature>
+
+
+      <Feature Id ="CommandLineTool" Title="!(wix.CommandLineToolTitle)" Level="1">
+        <ComponentGroupRef Id="CommandLineTools"/>
+      </Feature>
+      
+      <InstallExecuteSequence>
+
+        <!--register uof type in office-->
+        <Custom Action="SetRegisterFileTypeCommandName" After="CostFinalize"/>
+        <Custom Action="RegisterFileType" Before="InstallFinalize">
+          NOT Installed
+        </Custom>
+        <!--unregister uof type in office-->
+        <Custom Action="SetUnRegisterFileTypeCommandName" After="CostFinalize"/>
+        <Custom Action="UnRegisterFileType" Before="RemoveFiles">
+          REMOVE
+        </Custom>
+
+        <!--register window shell extension-->
+        <Custom Action="SetWindowsShellExtCommandName" After="CostFinalize"/>
+        <Custom Action="WindowsShellExtension" Before="InstallFinalize">
+          <![CDATA[&WindowsShellExt=3 AND NOT (!WindowsShellExt=3)]]>
+        </Custom>
+
+        <!--register window shell extension-->
+        <Custom Action="SetUnWindowsShellExtCommandName" After="CostFinalize"/>
+        <Custom Action="UnWindowsShellExtension" Before="RemoveFiles">
+          REMOVE AND <![CDATA[(!WindowsShellExt=3)]]>
+        </Custom>
+
+
+        <!--word template-->
+        <Custom Action="SetModifyTemplateDataValue" Before="ModifyWordTemplate"/>
+        <Custom Action="ModifyWordTemplate" Before="InstallFinalize">
+          (NOT REMOVE) AND <![CDATA[&WordTemplate=3]]>
+        </Custom>
+      </InstallExecuteSequence>
+      
+	</Product>
+
+
+</Wix>

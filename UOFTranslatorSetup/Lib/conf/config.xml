@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- UofConverter的配置文件 -->
+<Configuration>
+    <!-- oox到uof转换是打包还是存到一个目录下-->
+    <!-- false表示存到一个目录下，true表示打成一个包-->
+  <oox2uof_package>true</oox2uof_package>
+   	<!-- 是否对用户提示转换过程中的错误-->
+   	<!-- false为提示，true为不提示-->
+  <ignore_error>false</ignore_error>
+  <!-- uof 到OOX的版本 -->
+  <!--transitional 为转换成transitional版本-->
+  <!--strict 为转换成 strict版本-->
+  <ooxml_version>strict</ooxml_version>
+</Configuration>

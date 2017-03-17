@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<gadget>
+  <name>UOF Translator4.0</name>
+  <version>4.0.0</version>
+  <author name="Microsoft">
+    <logo src="icon.png" />
+  </author>
+  <copyright>Copyright ? 2007</copyright>
+  <description>This gadget allows you to drag and drop files to the Sidebar and convert them between UOF and OOX file formats.</description>
+<icons>
+  <icon src="icon.png" /> 
+  </icons> 
+  <hosts>
+    <host name="sidebar">
+      <base type="HTML" apiVersion="1.0.0" src="commands.html" />
+      <permissions>full</permissions>
+      <platform minPlatformVersion="0.3" />
+    </host>
+  </hosts>
+</gadget>

@@ -1,0 +1,619 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension"
+     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.microsoft.com/wix/2006/wi WiX.xsd">
+	<Fragment>
+
+    <DirectoryRef Id="WORDTEMPLATEFOLDER">
+  
+      <Component Id="CMP_1" Guid="{961CA7BA-0077-4B8D-B4F8-D72EDAD3C0CC}">
+        <File Id="FILE_1" Source="WordTemplates\863_application.dotx" KeyPath="yes"  />
+      </Component>
+
+      <Component Id="CMP_2" Guid="287F861B-8783-458D-97B9-DAA67D212A17">
+        <File Id="FILE_2" Source="WordTemplates\863_application_Preview.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_3" Guid="1B070C7F-F01C-4DB1-8599-0376398D1D0A">
+        <File Id="FILE_3" Source="WordTemplates\863_application_Thumbnail.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_4" Guid="51C0EDDF-CF4A-4AA7-ABAB-34510764EAAD">
+        <File Id="FILE_4" Source="WordTemplates\Announcement.dotx" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_5" Guid="34E90D21-7C64-4013-B1A4-FF282DDE0A2A">
+        <File Id="FILE_5" Source="WordTemplates\Announcement_preview.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_6" Guid="C8D58131-A005-4E99-AC4C-775AB9BE38C5">
+        <File Id="FILE_6" Source="WordTemplates\Announcement_thumbnail.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_10" Guid="{F70CE3F1-F255-4652-A0F8-EEBDA6FCCA1C}">
+        <File Id="FILE_10" Source="WordTemplates\confsummary.dotx" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_11" Guid="{DC908311-8CFD-4365-9A85-248F59924AE4}">
+        <File Id="FILE_11" Source="WordTemplates\confsummary_nail.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_12" Guid="{FD41C162-3658-4A4F-A780-51BE46C41E18}">
+        <File Id="FILE_12" Source="WordTemplates\confsummary_preview.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_13" Guid="{EC1591D5-4E44-46CF-942A-C97C4D8640C8}">
+        <File Id="FILE_13" Source="WordTemplates\Decision.dotx" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_14" Guid="{F85877BB-A78C-4DC9-8377-DF2B95C8D558}">
+        <File Id="FILE_14" Source="WordTemplates\Decision_preview.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_15" Guid="{1185ACB5-B6E1-4A97-9885-C881B42A13DF}">
+        <File Id="FILE_15" Source="WordTemplates\Decision_thumbnail.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_16" Guid="{81A71399-78A5-4FD5-A870-3221C0858767}">
+        <File Id="FILE_16" Source="WordTemplates\doc_format_GB.dotx" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_17" Guid="{66451433-FAF6-469F-84F0-5267454EE7D9}">
+        <File Id="FILE_17" Source="WordTemplates\doc_format_GB_nail.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_18" Guid="{B030BAF0-6841-4537-93E1-EDA9CD73DE74}">
+        <File Id="FILE_18" Source="WordTemplates\doc_format_GB_preview.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_19" Guid="{8FC225C8-7265-4593-8041-C7D10C14B904}">
+        <File Id="FILE_19" Source="WordTemplates\downwriting.dotx" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_20" Guid="{7777E8FF-68AD-452E-8173-ABC4517051DC}">
+        <File Id="FILE_20" Source="WordTemplates\downwriting_nail.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_21" Guid="{D3D4B1BE-75A2-44B7-A40B-1BDA547A1FF4}">
+        <File Id="FILE_21" Source="WordTemplates\downwriting_preview.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_22" Guid="{F4A6A0A5-B484-4588-BD13-293C4D9668F3}">
+        <File Id="FILE_22" Source="WordTemplates\letter_han.dotx" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_23" Guid="{D5E37832-1BD7-498D-8B83-B7B9ED5FDE56}">
+        <File Id="FILE_23" Source="WordTemplates\letter_han_preview.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_24" Guid="{53A6EAC0-71CC-45FA-B5AB-51A40153390F}">
+        <File Id="FILE_24" Source="WordTemplates\letter_han_thumbnail.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_25" Guid="{7CEF5B90-AC44-4EAA-B464-51C36C57D8B2}">
+        <File Id="FILE_25" Source="WordTemplates\MeetingMinutes.dotx" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_26" Guid="{5CC88869-E8D8-410C-BAE1-6A1CCEEBEB0F}">
+        <File Id="FILE_26" Source="WordTemplates\Meeting_minutes_preview.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_27" Guid="{C66B0B49-ACCB-4D90-8C54-6D955BB0993F}">
+        <File Id="FILE_27" Source="WordTemplates\Meeting_minutes_thumbnail.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_28" Guid="{D20A5996-9408-4EE8-9114-88F02B2ED231}">
+        <File Id="FILE_28" Source="WordTemplates\ODFFax.dotx" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_29" Guid="{4C6352CC-0522-42BF-84AE-4B9CCB2758D1}">
+        <File Id="FILE_29" Source="WordTemplates\ODFFax.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_30" Guid="{B4680049-828D-4D2F-A9EE-0F6F474DFBB8}">
+        <File Id="FILE_30" Source="WordTemplates\ODFFaxBig.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_31" Guid="{D5E81B61-D79E-4453-9E03-4E517EA7F3FD}">
+        <File Id="FILE_31" Source="WordTemplates\ODFLetter.dotx" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_32" Guid="{A53E721C-AE83-438B-B93E-D04884AEC773}">
+        <File Id="FILE_32" Source="WordTemplates\ODFLetter.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_33" Guid="{A56D9F0F-60EB-41A4-80A9-FC96ABC0EB2A}">
+        <File Id="FILE_33" Source="WordTemplates\ODFLetterBig.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_34" Guid="{DAC63944-A8DC-4C67-8A2E-379D4D23E75C}">
+        <File Id="FILE_34" Source="WordTemplates\ODFMemo.dotx" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_35" Guid="{13D649C8-B512-4B41-997B-E60BD66EEE4C}">
+        <File Id="FILE_35" Source="WordTemplates\ODFMemo.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_36" Guid="{4F121E64-59EC-4F63-82D8-D755F2943CA3}">
+        <File Id="FILE_36" Source="WordTemplates\ODFMemoBig.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_37" Guid="{0FF93298-FA5F-4870-B38E-8E94E028199C}">
+        <File Id="FILE_37" Source="WordTemplates\ODFReport.dotx" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_38" Guid="{B721F031-C34D-402B-A96D-42C8DD241824}">
+        <File Id="FILE_38" Source="WordTemplates\ODFReport.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_39" Guid="{F5B83565-3824-4741-B93A-12CE6A425820}">
+        <File Id="FILE_39" Source="WordTemplates\ODFReportBig.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_40" Guid="{CA828D23-B261-45F3-8605-2A73B15D6E1F}">
+        <File Id="FILE_40" Source="WordTemplates\opinion.dotx" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_41" Guid="{4BC71F8C-3DE7-422C-ADCA-25CF94EBED33}">
+        <File Id="FILE_41" Source="WordTemplates\opinion_preview.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_42" Guid="{374E933F-AAAE-4A74-B69F-2BC529CD8BD6}">
+        <File Id="FILE_42" Source="WordTemplates\opinion_thumbnail.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_43" Guid="{88095206-056A-4FF3-9929-4E0EBAE717B7}">
+        <File Id="FILE_43" Source="WordTemplates\replies.dotx" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_44" Guid="{86ACBEE4-98E7-4894-820E-DFA70EE48C94}">
+        <File Id="FILE_44" Source="WordTemplates\replies_nail.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_45" Guid="{D7E6BE3B-2D88-44C1-9392-E206671CC6D3}">
+        <File Id="FILE_45" Source="WordTemplates\replies_preview.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_46" Guid="{EB319E9A-6D9B-40A8-A4BC-75EEB93487D7}">
+        <File Id="FILE_46" Source="WordTemplates\reply.dotx" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_47" Guid="{0A2CC85D-F6D8-4F8A-8293-9D3F95FD2D0E}">
+        <File Id="FILE_47" Source="WordTemplates\reply_preview.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_48" Guid="{80CADEF6-AA4B-4D8B-B6A3-28B208008D17}">
+        <File Id="FILE_48" Source="WordTemplates\reply_thumbnail.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_49" Guid="{9C1DB3A2-7F27-43AA-A51F-0B1C9CE49809}">
+        <File Id="FILE_49" Source="WordTemplates\report.dotx" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_50" Guid="{B27EE60D-A58C-48ED-A60F-D326AEBBBB1F}">
+        <File Id="FILE_50" Source="WordTemplates\report_preview.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_51" Guid="{0E414621-1FF1-4735-BD18-5E8344068380}">
+        <File Id="FILE_51" Source="WordTemplates\report_thumbnail.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_52" Guid="{FC1F58D8-6875-454A-8537-F62398D5FBF0}">
+        <File Id="FILE_52" Source="WordTemplates\solosigncommand.dotx" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_53" Guid="{849109F1-EEC0-49D2-9E04-C3566358E215}">
+        <File Id="FILE_53" Source="WordTemplates\sscommand_nail.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_54" Guid="{DF363FA2-9862-44F7-A3EC-8FC9EF9FD9CC}">
+        <File Id="FILE_54" Source="WordTemplates\sscommand_preview.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_55" Guid="{11E71C9B-DD24-42A4-9270-24172301E197}">
+        <File Id="FILE_55" Source="WordTemplates\ssaviso.dotx" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_56" Guid="{AA657788-6532-4304-968C-25368C0543C2}">
+        <File Id="FILE_56" Source="WordTemplates\ssaviso_nail.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_57" Guid="{0A833616-C9D3-4217-84C5-D1D7184EDA4C}">
+        <File Id="FILE_57" Source="WordTemplates\ssaviso_preview.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_58" Guid="{986BED34-B4A0-4D41-A365-BDC8A5EE01EB}">
+        <File Id="FILE_58" Source="WordTemplates\ssdecision.dotx" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_59" Guid="{466D0CD9-5820-4B77-8367-8090265595E7}">
+        <File Id="FILE_59" Source="WordTemplates\ssdecision_nail.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_60" Guid="{9291580A-FCF9-4C17-AF1C-24F122D8B1EB}">
+        <File Id="FILE_60" Source="WordTemplates\ssdecision_preview.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_61" Guid="{6A6C4155-02D8-453C-BE1F-704F0C765163}">
+        <File Id="FILE_61" Source="WordTemplates\ssletter.dotx" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_62" Guid="{3D0C8269-C32E-4C73-B927-13A6D8FC7F6C}">
+        <File Id="FILE_62" Source="WordTemplates\ssletter_nail.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_63" Guid="{D9A7A828-6151-4BF6-9AF4-BF39C89DE428}">
+        <File Id="FILE_63" Source="WordTemplates\ssletter_preview.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_64" Guid="{D8DBAD85-4DAA-4D99-9CEA-33529FD41669}">
+        <File Id="FILE_64" Source="WordTemplates\ssnotify.dotx" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_65" Guid="{3D3EFE1D-BAE6-4C77-9F9B-353D8553009E}">
+        <File Id="FILE_65" Source="WordTemplates\ssnotify_nail.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_66" Guid="{6B5BD974-5C94-4A90-8B18-6A9EC2DD5858}">
+        <File Id="FILE_66" Source="WordTemplates\ssnotify_preview.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_67" Guid="{555E3A70-AC22-4AA6-AC06-B6D6F51A4DD2}">
+        <File Id="FILE_67" Source="WordTemplates\ssopinion.dotx" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_68" Guid="{B30C43D4-0B48-4354-90B4-8EF4C6A2235B}">
+        <File Id="FILE_68" Source="WordTemplates\ssopinion_nail.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_69" Guid="{C63F3155-FFF7-47D6-8968-27943E7B4B72}">
+        <File Id="FILE_69" Source="WordTemplates\ssopinion_preview.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_70" Guid="{85AF6AA0-2A8E-40F1-9C7E-078BDF04EDE8}">
+        <File Id="FILE_70" Source="WordTemplates\ssproposal.dotx" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_71" Guid="{04C56AE1-ACB8-4A7C-9392-345A374B22E4}">
+        <File Id="FILE_71" Source="WordTemplates\ssproposal_nail.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_72" Guid="{F5A20A1E-91AC-47EA-9076-935EAC045607}">
+        <File Id="FILE_72" Source="WordTemplates\ssproposal_preview.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_73" Guid="{48315760-F387-4017-9BF3-D02D18EC9768}">
+        <File Id="FILE_73" Source="WordTemplates\ssrequest.dotx" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_74" Guid="{874A10FC-5431-4EEF-AAFA-0774E210EB51}">
+        <File Id="FILE_74" Source="WordTemplates\ssrequest_nail.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_75" Guid="{B1E1A119-561F-4190-99F3-B069018F5C23}">
+        <File Id="FILE_75" Source="WordTemplates\ssrequest_preview.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_76" Guid="{9F81D37B-7078-43FA-A757-12B74EA14F11}">
+        <File Id="FILE_76" Source="WordTemplates\standbulletin.dotx" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_77" Guid="{226F75C5-DDE6-498E-9F83-01778C3366A3}">
+        <File Id="FILE_77" Source="WordTemplates\standbulletin_nail.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_78" Guid="{C7BD47B0-453D-479C-8E06-462248E51F18}">
+        <File Id="FILE_78" Source="WordTemplates\standbulletin_preview.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_79" Guid="{12687ECF-1577-4F26-9F3C-520286346C15}">
+        <File Id="FILE_79" Source="WordTemplates\standdocument.dotx" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_80" Guid="{5847FDCD-6217-415F-B7FB-80A5A79637E8}">
+        <File Id="FILE_80" Source="WordTemplates\standdocument_nail.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_81" Guid="{B61A48AC-EF8E-43F4-ABFF-0A1965FDCC67}">
+        <File Id="FILE_81" Source="WordTemplates\standdocument_preview.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_82" Guid="{82B85464-06DE-4657-9380-3CB510123B39}">
+        <File Id="FILE_82" Source="WordTemplates\standreport.dotx" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_83" Guid="{041E5802-1786-4556-9089-FFFFCF039435}">
+        <File Id="FILE_83" Source="WordTemplates\standreport_nail.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_84" Guid="{81B90769-2F4B-4FCA-9408-6BDE7E96B80E}">
+        <File Id="FILE_84" Source="WordTemplates\standreport_preview.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_85" Guid="{1680C608-1DF6-47B9-A79D-D82089F4EBDD}">
+        <File Id="FILE_85" Source="WordTemplates\UOFannounce.dotx" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_86" Guid="{29E531AB-D401-4369-A16C-86BD9F06AC3C}">
+        <File Id="FILE_86" Source="WordTemplates\UOFannounceBig.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_87" Guid="{E693912C-8264-4F4D-9BB2-0C5A2A19EF30}">
+        <File Id="FILE_87" Source="WordTemplates\UOFannounceSmall.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_88" Guid="{FBD6D016-6DC5-42CD-953D-F6E13E76047C}">
+        <File Id="FILE_88" Source="WordTemplates\UOFapply.dotx" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_89" Guid="{C7C617EA-B1A3-4346-B34A-E399C1B4360C}">
+        <File Id="FILE_89" Source="WordTemplates\UOFapplyBig.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_90" Guid="{3C31A711-4FDB-4B86-9D54-9046F261C251}">
+        <File Id="FILE_90" Source="WordTemplates\UOFapplySmall.png" KeyPath="yes" />
+      </Component>
+
+
+      <Component Id="CMP_91" Guid="{EF2842F9-93ED-41C5-8E23-8C97BE65A4B6}">
+        <File Id="FILE_91" Source="WordTemplates\UOFaviso.dotx" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_92" Guid="{7787207E-9BF8-488F-9D28-394E08748048}">
+        <File Id="FILE_92" Source="WordTemplates\UOFavisoBig.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_93" Guid="{B3C1602C-1326-4204-9EFD-AFA6971DE9E8}">
+        <File Id="FILE_93" Source="WordTemplates\UOFavisoSmall.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_94" Guid="{5D5770C1-04E1-4042-881B-D4A7AA2FD93C}">
+        <File Id="FILE_94" Source="WordTemplates\UOFCommand.dotx" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_95" Guid="{F52705AD-CE49-44F3-AE43-6BBE07369EE2}">
+        <File Id="FILE_95" Source="WordTemplates\UOFCommandBig.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_96" Guid="{0AC75453-AAB7-4D01-83A8-C7F3A3B481DB}">
+        <File Id="FILE_96" Source="WordTemplates\UOFCommandSmall.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_97" Guid="{2058F744-4521-4052-AC1E-21ECFBA72C22}">
+        <File Id="FILE_97" Source="WordTemplates\UOFmeetingreport.dotx" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_98" Guid="{91EDD428-F71D-4E1B-BCF5-CFB370A218D2}">
+        <File Id="FILE_98" Source="WordTemplates\UOFmeetingreportBig.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_99" Guid="{1D29C7CE-3464-4A5A-9F74-D292A234B644}">
+        <File Id="FILE_99" Source="WordTemplates\UOFmeetingreportSmall.png" KeyPath="yes" />
+      </Component>
+
+
+      <Component Id="CMP_100" Guid="{E75965B8-903E-4B35-B1F6-EDB9655A5D88}">
+        <File Id="FILE_100" Source="WordTemplates\UOFnotify.dotx" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_101" Guid="{85D9A67E-6817-423A-9FA6-1C721B9C10D6}">
+        <File Id="FILE_101" Source="WordTemplates\UOFnotifyBig.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_102" Guid="{69F81D3F-1918-48E8-81F6-03D68E31C0E6}">
+        <File Id="FILE_102" Source="WordTemplates\UOFnotifySmall.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_103" Guid="{FB7A673A-9076-4695-A708-33714F026FAC}">
+        <File Id="FILE_103" Source="WordTemplates\UOFproposal.dotx" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_104" Guid="{2495A751-897E-48D7-93EE-0A7CE668B09A}">
+        <File Id="FILE_104" Source="WordTemplates\UOFproposalBig.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_105" Guid="{51499C1C-97DB-4B24-A7EA-51D7B9C8441E}">
+        <File Id="FILE_105" Source="WordTemplates\UOFproposalsmall.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_106" Guid="{10AD29DF-0AAF-428C-8B7E-A3B3680A0742}">
+        <File Id="FILE_106" Source="WordTemplates\UOFresolution.dotx" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_107" Guid="{76DB464F-067F-4510-90B2-23102C3CCE9F}">
+        <File Id="FILE_107" Source="WordTemplates\UOFresolutionBig.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_108" Guid="{63555C42-0E14-4D6F-A796-A25CAB6EC46E}">
+        <File Id="FILE_108" Source="WordTemplates\UOFresolutionSmall.png" KeyPath="yes" />
+      </Component>
+
+      <Component Id="CMP_109" Guid="{5B2EDC7F-1D6C-4752-BD22-D91611F91691}">
+        <File Id="FILE_109" Source="WordTemplates\templates_info_user.xml" KeyPath="yes">
+          <util:PermissionEx User="Everyone" GenericAll="yes"/>
+        </File>
+      </Component>
+
+      <Component Id="CMP_110" Guid="{136C065B-23B0-4B01-A417-FE11C231892C}">
+        <File Id="FILE_110" Source="WordTemplates\templates_e_gov.xml" KeyPath="yes">
+          <util:PermissionEx User="Everyone" GenericAll="yes"/>
+        </File>
+      </Component>
+
+      <Component Id="CMP_111" Guid="{F40CD4F0-B359-48BC-8069-1FF9EAE026FE}">
+        <File Id="FILE_111" Source="WordTemplates\templates_standard.xml" KeyPath="yes">
+          <util:PermissionEx User="Everyone" GenericAll="yes"/>
+        </File>
+      </Component>
+
+    </DirectoryRef>
+   
+    <ComponentGroup Id="WordTemplatesRef">
+     
+      
+      <ComponentRef Id="CMP_2"/>
+      <ComponentRef Id="CMP_3"/>
+     
+      <ComponentRef Id="CMP_5"/>
+      <ComponentRef Id="CMP_6"/>
+      
+      <ComponentRef Id="CMP_11"/>
+      <ComponentRef Id="CMP_12"/>
+      
+      <ComponentRef Id="CMP_14"/>
+      <ComponentRef Id="CMP_15"/>
+      
+      <ComponentRef Id="CMP_17"/>
+      <ComponentRef Id="CMP_18"/>
+      <ComponentRef Id="CMP_20"/>
+      <ComponentRef Id="CMP_21"/>
+     
+      <ComponentRef Id="CMP_23"/>
+      <ComponentRef Id="CMP_24"/>
+      
+      <ComponentRef Id="CMP_26"/>
+      <ComponentRef Id="CMP_27"/>
+      
+      <ComponentRef Id="CMP_29"/>
+      <ComponentRef Id="CMP_30"/>
+      
+      <ComponentRef Id="CMP_32"/>
+      <ComponentRef Id="CMP_33"/>
+      
+      <ComponentRef Id="CMP_35"/>
+      <ComponentRef Id="CMP_36"/>
+      
+      <ComponentRef Id="CMP_38"/>
+      <ComponentRef Id="CMP_39"/>
+      
+      <ComponentRef Id="CMP_41"/>
+      <ComponentRef Id="CMP_42"/>
+     
+      <ComponentRef Id="CMP_44"/>
+      <ComponentRef Id="CMP_45"/>
+      
+      <ComponentRef Id="CMP_47"/>
+      <ComponentRef Id="CMP_48"/>
+      <ComponentRef Id="CMP_50"/>
+      <ComponentRef Id="CMP_51"/>
+     
+      <ComponentRef Id="CMP_53"/>
+      <ComponentRef Id="CMP_54"/>
+      <ComponentRef Id="CMP_56"/>
+      <ComponentRef Id="CMP_57"/>
+      <ComponentRef Id="CMP_59"/>
+      <ComponentRef Id="CMP_60"/>
+      <ComponentRef Id="CMP_62"/>
+      <ComponentRef Id="CMP_63"/>
+      <ComponentRef Id="CMP_65"/>
+      <ComponentRef Id="CMP_66"/>
+      <ComponentRef Id="CMP_68"/>
+      <ComponentRef Id="CMP_69"/>
+      <ComponentRef Id="CMP_71"/>
+      <ComponentRef Id="CMP_72"/>
+      <ComponentRef Id="CMP_74"/>
+      <ComponentRef Id="CMP_75"/>
+      <ComponentRef Id="CMP_77"/>
+      <ComponentRef Id="CMP_78"/>
+      <ComponentRef Id="CMP_80"/>
+      <ComponentRef Id="CMP_81"/>
+     
+      <ComponentRef Id="CMP_83"/>
+      <ComponentRef Id="CMP_84"/>
+      <ComponentRef Id="CMP_86"/>
+      <ComponentRef Id="CMP_87"/>
+      <ComponentRef Id="CMP_89"/>
+      <ComponentRef Id="CMP_90"/>
+      <ComponentRef Id="CMP_92"/>
+      <ComponentRef Id="CMP_93"/>
+      <ComponentRef Id="CMP_95"/>
+      <ComponentRef Id="CMP_96"/>
+      <ComponentRef Id="CMP_98"/>
+      <ComponentRef Id="CMP_99"/>
+      <ComponentRef Id="CMP_101"/>
+      <ComponentRef Id="CMP_102"/>
+      <ComponentRef Id="CMP_104"/>
+      <ComponentRef Id="CMP_105"/>
+      <ComponentRef Id="CMP_107"/>
+      <ComponentRef Id="CMP_108"/>
+      <ComponentRef Id="CMP_109"/>
+      <ComponentRef Id="CMP_110"/>
+      <ComponentRef Id="CMP_111"/>
+    </ComponentGroup>
+
+    <ComponentGroup Id="AllWordTemplates">
+      <ComponentRef Id="CMP_1"/>
+      <ComponentRef Id="CMP_4"/>
+      <ComponentRef Id="CMP_10"/>
+      <ComponentRef Id="CMP_13"/>
+      <ComponentRef Id="CMP_16"/>
+      <ComponentRef Id="CMP_19"/>
+      <ComponentRef Id="CMP_22"/>
+      <ComponentRef Id="CMP_25"/>
+      <ComponentRef Id="CMP_28"/>
+      <ComponentRef Id="CMP_31"/>
+      <ComponentRef Id="CMP_34"/>
+      <ComponentRef Id="CMP_37"/>
+      <ComponentRef Id="CMP_40"/>
+      <ComponentRef Id="CMP_43"/>
+      <ComponentRef Id="CMP_46"/>
+
+      <ComponentRef Id="CMP_49"/>
+      <ComponentRef Id="CMP_52"/>
+      <ComponentRef Id="CMP_55"/>
+      <ComponentRef Id="CMP_58"/>
+      <ComponentRef Id="CMP_61"/>
+      <ComponentRef Id="CMP_64"/>
+      <ComponentRef Id="CMP_67"/>
+      <ComponentRef Id="CMP_70"/>
+      <ComponentRef Id="CMP_73"/>
+      <ComponentRef Id="CMP_76"/>
+      <ComponentRef Id="CMP_79"/>
+      <ComponentRef Id="CMP_82"/>
+      <ComponentRef Id="CMP_85"/>
+      <ComponentRef Id="CMP_88"/>
+      <ComponentRef Id="CMP_91"/>
+      <ComponentRef Id="CMP_94"/>
+      <ComponentRef Id="CMP_97"/>
+      <ComponentRef Id="CMP_100"/>
+      <ComponentRef Id="CMP_103"/>
+      <ComponentRef Id="CMP_106"/>
+    </ComponentGroup>
+    <!--<DirectoryRef Id="NETTEMPLATEFOLDER">
+
+      <Component Id="CMP_NET1" Guid="{3A6897A7-BDB6-494E-BC97-9EEB48BC0B87}" >
+        <File Id="NETFILE_1" Source="NetTemplates\1.doc" KeyPath="yes"  />
+      </Component>
+    </DirectoryRef>
+
+    <ComponentGroup Id="AllNetTemplates">
+      <ComponentRef Id="CMP_NET1"/>
+    </ComponentGroup>-->
+	</Fragment>
+  <!--<Fragment>
+    <DirectoryRef Id="TEMPLATEFOLDER">
+      <Component Id="CMP_109" Guid="{5B2EDC7F-1D6C-4752-BD22-D91611F91691}">
+        <File Id="FILE_109" Source="WordTemplates\templates_info_user.xml" KeyPath="yes">
+          <util:PermissionEx User="Everyone" GenericAll="yes"/>
+        </File>
+      </Component>
+
+      <Component Id="CMP_110" Guid="{136C065B-23B0-4B01-A417-FE11C231892C}">
+        <File Id="FILE_110" Source="WordTemplates\templates_e_gov.xml" KeyPath="yes">
+          <util:PermissionEx User="Everyone" GenericAll="yes"/>
+        </File>
+      </Component>
+
+      <Component Id="CMP_111" Guid="{F40CD4F0-B359-48BC-8069-1FF9EAE026FE}">
+        <File Id="FILE_111" Source="WordTemplates\templates_standard.xml" KeyPath="yes">
+          <util:PermissionEx User="Everyone" GenericAll="yes"/>
+        </File>
+      </Component>
+    </DirectoryRef>
+    <ComponentGroup Id="WordTemplateDescription">
+      <ComponentRef Id="CMP_109"/>
+      <ComponentRef Id="CMP_110"/>
+      <ComponentRef Id="CMP_111"/>
+    </ComponentGroup>
+  </Fragment>-->
+</Wix>

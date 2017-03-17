@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.microsoft.com/wix/2006/wi WiX.xsd">
+	<Fragment>
+    
+    <!--names of template group-->
+    <WixVariable Id="EGovernment" Value="UOF E-Government"/>
+    <WixVariable Id="Knowledge" Value="UOF Knowledge"/>
+    <WixVariable Id="Standard" Value="UOF Standard"/>
+    
+    <!--e government templates-->
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="CMP_EGOVTEMPLATE1" Guid="{DE1823E9-8724-4EB0-A01C-01F2907D3A87}">
+        <RegistryKey Root="HKCU" Key="Software\Microsoft\Office\14.0\Common\Spotlight\Providers\!(wix.EGovernment)" >
+          <RegistryValue Name="ServiceURL" Action="write" Value="[WORDTEMPLATEFOLDER]templates_e_gov.xml" Type="string" KeyPath="no"/>
+        </RegistryKey>
+        <RegistryKey Root="HKCU" Key="Software\Microsoft\Office\15.0\Common\Spotlight\Providers\!(wix.EGovernment)" >
+          <RegistryValue Name="ServiceURL" Action="write" Value="[WORDTEMPLATEFOLDER]templates_e_gov.xml" Type="string" KeyPath="yes"/>
+        </RegistryKey>
+      </Component>
+    </DirectoryRef>
+    
+
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="CMP_REMOVEEGOVTEMPLATE1" Guid="{1A080AA1-1C81-4B31-B9CB-7D3375C291C1}" KeyPath="yes">
+        <RemoveRegistryKey Id="RemoveEGovernCatch14" Root="HKCU" Key="Software\Microsoft\Office\14.0\Common\Spotlight\Content\!(wix.EGovernment)"
+                           Action="removeOnInstall"/>
+        <RemoveRegistryKey Id="RemoveEGovernCatch15" Root="HKCU" Key="Software\Microsoft\Office\15.0\Common\Spotlight\Content\!(wix.EGovernment)"
+                          Action="removeOnInstall"/>
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="CMP_EGOVTEMPLATE2" Guid="{FA38D5DA-DD55-4778-A2B1-AEA53A6E12FA}">
+        <RegistryKey Root="HKLM" Key="SOFTWARE\Microsoft\Office\14.0\Common\Spotlight\Providers\!(wix.EGovernment)">
+          <RegistryValue Name="ServiceURL" Action="write" Value="[WORDTEMPLATEFOLDER]templates_e_gov.xml" Type="string" KeyPath="no"/>
+        </RegistryKey>
+        <RegistryKey Root="HKLM" Key="SOFTWARE\Microsoft\Office\15.0\Common\Spotlight\Providers\!(wix.EGovernment)">
+          <RegistryValue Name="ServiceURL" Action="write" Value="[WORDTEMPLATEFOLDER]templates_e_gov.xml" Type="string" KeyPath="yes"/>
+        </RegistryKey>
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="CMP_REMOVEEGOVTEMPLATE2" Guid="{485A074D-AB43-4E29-8E51-13F1A4DAD3A9}" KeyPath="yes">
+        <RemoveRegistryKey Id="RemoveEGovernCatch24" Root="HKLM" Key="Software\Microsoft\Office\14.0\Common\Spotlight\Content\!(wix.EGovernment)"
+                           Action="removeOnInstall"/>
+        <RemoveRegistryKey Id="RemoveEGovernCatch25" Root="HKLM" Key="Software\Microsoft\Office\15.0\Common\Spotlight\Content\!(wix.EGovernment)"
+                         Action="removeOnInstall"/>
+      </Component>
+    </DirectoryRef>
+
+    <!--e knowledge templates-->
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="CMP_KNOWLEDGE1" Guid="{FFE3E351-936B-48CF-AF17-13D379C51CFD}">
+        <RegistryKey Root="HKCU" Key="Software\Microsoft\Office\14.0\Common\Spotlight\Providers\!(wix.Knowledge)">
+          <RegistryValue Name="ServiceURL" Action="write" Value="[WORDTEMPLATEFOLDER]templates_info_user.xml" Type="string" KeyPath="no"/>
+        </RegistryKey>
+        <RegistryKey Root="HKCU" Key="Software\Microsoft\Office\15.0\Common\Spotlight\Providers\!(wix.Knowledge)">
+          <RegistryValue Name="ServiceURL" Action="write" Value="[WORDTEMPLATEFOLDER]templates_info_user.xml" Type="string" KeyPath="yes"/>
+        </RegistryKey>
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="CMP_REMOVEKNOWLEDGE1" Guid="{A3FBB8EF-19FA-47DD-BAF3-0EC2A9634D87}" KeyPath="yes">
+        <RemoveRegistryKey Id="RemoveKnowledgeCatch14" Root="HKCU" Key="Software\Microsoft\Office\14.0\Common\Spotlight\Content\!(wix.Knowledge)"
+                           Action="removeOnInstall"/>
+        <RemoveRegistryKey Id="RemoveKnowledgeCatch15" Root="HKCU" Key="Software\Microsoft\Office\15.0\Common\Spotlight\Content\!(wix.Knowledge)"
+                          Action="removeOnInstall"/>
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="CMP_KNOWLEDGE2" Guid="{693D41C7-3797-4A08-A099-8CF9823A946B}">
+        <RegistryKey Root="HKLM" Key="SOFTWARE\Microsoft\Office\14.0\Common\Spotlight\Providers\!(wix.Knowledge)">
+          <RegistryValue Name="ServiceURL" Action="write" Value="[WORDTEMPLATEFOLDER]templates_info_user.xml" Type="string" KeyPath="no"/>
+        </RegistryKey>
+        <RegistryKey Root="HKLM" Key="SOFTWARE\Microsoft\Office\15.0\Common\Spotlight\Providers\!(wix.Knowledge)">
+          <RegistryValue Name="ServiceURL" Action="write" Value="[WORDTEMPLATEFOLDER]templates_info_user.xml" Type="string" KeyPath="yes"/>
+        </RegistryKey>
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="CMP_REMOVEKNOWLEDGE2" Guid="{4BBFBDE5-F276-4D0A-ACE5-0637CFADD631}" KeyPath="yes">
+        <RemoveRegistryKey Id="RemoveKnowledgeCatch24" Root="HKLM" Key="Software\Microsoft\Office\14.0\Common\Spotlight\Content\!(wix.Knowledge)"
+                           Action="removeOnInstall"/>
+        <RemoveRegistryKey Id="RemoveKnowledgeCatch25" Root="HKLM" Key="Software\Microsoft\Office\15.0\Common\Spotlight\Content\!(wix.Knowledge)"
+                           Action="removeOnInstall"/>
+      </Component>
+    </DirectoryRef>
+
+    <!--e standard templates-->
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="CMP_STANDARD1" Guid="{EAA1F6EA-8749-478D-8270-8E3D0E727534}">
+        <RegistryKey Root="HKCU" Key="Software\Microsoft\Office\14.0\Common\Spotlight\Providers\!(wix.Standard)">
+          <RegistryValue Name="ServiceURL" Action="write" Value="[WORDTEMPLATEFOLDER]templates_standard.xml" Type="string" KeyPath="no"/>
+        </RegistryKey>
+        <RegistryKey Root="HKCU" Key="Software\Microsoft\Office\15.0\Common\Spotlight\Providers\!(wix.Standard)">
+          <RegistryValue Name="ServiceURL" Action="write" Value="[WORDTEMPLATEFOLDER]templates_standard.xml" Type="string" KeyPath="yes"/>
+        </RegistryKey>
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="CMP_REMOVESTANDARD1" Guid="{E445338E-8952-4786-84CD-956884A15B9C}" KeyPath="yes">
+        <RemoveRegistryKey Id="RemoveStandardCatch14" Root="HKCU" Key="Software\Microsoft\Office\14.0\Common\Spotlight\Content\!(wix.Standard)"
+                           Action="removeOnInstall"/>
+        <RemoveRegistryKey Id="RemoveStandardCatch15" Root="HKCU" Key="Software\Microsoft\Office\15.0\Common\Spotlight\Content\!(wix.Standard)"
+                           Action="removeOnInstall"/>
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="CMP_STANDARD2" Guid="{574D0D2E-1944-420F-9131-BEB23CD101CC}">
+        <RegistryKey Root="HKLM" Key="SOFTWARE\Microsoft\Office\14.0\Common\Spotlight\Providers\!(wix.Standard)">
+          <RegistryValue Name="ServiceURL" Action="write" Value="[WORDTEMPLATEFOLDER]templates_standard.xml" Type="string" KeyPath="no"/>
+        </RegistryKey>
+        <RegistryKey Root="HKLM" Key="SOFTWARE\Microsoft\Office\15.0\Common\Spotlight\Providers\!(wix.Standard)">
+          <RegistryValue Name="ServiceURL" Action="write" Value="[WORDTEMPLATEFOLDER]templates_standard.xml" Type="string" KeyPath="yes"/>
+        </RegistryKey>
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="CMP_REMOVESTANDARD2" Guid="{A91DC54A-CBE7-4591-8109-3537894403B0}" KeyPath="yes">
+        <RemoveRegistryKey Id="RemoveStandardCatch24" Root="HKLM" Key="Software\Microsoft\Office\14.0\Common\Spotlight\Content\!(wix.Standard)"
+                           Action="removeOnInstall"/>
+        <RemoveRegistryKey Id="RemoveStandardCatch25" Root="HKLM" Key="Software\Microsoft\Office\15.0\Common\Spotlight\Content\!(wix.Standard)"
+                          Action="removeOnInstall"/>
+      </Component>
+    </DirectoryRef>
+    
+    <!--excel convertor-->
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="CMP_EXCELCONVERTOREXPORT" Guid="{70751086-FF2E-4874-A841-5D5A455EF59D}">
+        <RegistryKey Root="HKLM" Key="SOFTWARE\Microsoft\Office\14.0\Excel\Text Converters\OOXML Converters\Export\UOF Spreadsheet Converter_51" Action="createAndRemoveOnUninstall">
+          <RegistryValue Name="Clsid" Action="write" Value="{ADBE850B-D37F-4422-B66E-88471BDC1B20}" Type="string" KeyPath="no"/>
+          <RegistryValue Name="Extensions" Action="write" Value="uos" Type="string" KeyPath="no"/>
+          <RegistryValue Name="Name" Action="write" Value="UOF2.0" Type="string" KeyPath="no"/>
+        </RegistryKey>
+        <RegistryKey Root="HKLM" Key="SOFTWARE\Microsoft\Office\15.0\Excel\Text Converters\OOXML Converters\Export\UOF Spreadsheet Converter_51" Action="createAndRemoveOnUninstall">
+          <RegistryValue Name="Clsid" Action="write" Value="{ADBE850B-D37F-4422-B66E-88471BDC1B20}" Type="string" KeyPath="no"/>
+          <RegistryValue Name="Extensions" Action="write" Value="uos" Type="string" KeyPath="no"/>
+          <RegistryValue Name="Name" Action="write" Value="UOF2.0" Type="string" KeyPath="no"/>
+        </RegistryKey>
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="CMP_EXCELCONVERTORIMPORT" Guid="{2223C470-B90C-45C9-8D40-094DC9313EE5}">
+        <RegistryKey Root="HKLM" Key="SOFTWARE\Microsoft\Office\14.0\Excel\Text Converters\OOXML Converters\Import\UOF Spreadsheet Converter_51" Action="createAndRemoveOnUninstall">
+          <RegistryValue Name="Clsid" Action="write" Value="{ADBE850B-D37F-4422-B66E-88471BDC1B20}" Type="string" KeyPath="no"/>
+          <RegistryValue Name="Extensions" Action="write" Value="uos" Type="string" KeyPath="no"/>
+          <RegistryValue Name="Name" Action="write" Value="UOF2.0" Type="string" KeyPath="no"/>
+        </RegistryKey>
+        <RegistryKey Root="HKLM" Key="SOFTWARE\Microsoft\Office\15.0\Excel\Text Converters\OOXML Converters\Import\UOF Spreadsheet Converter_51" Action="createAndRemoveOnUninstall">
+          <RegistryValue Name="Clsid" Action="write" Value="{ADBE850B-D37F-4422-B66E-88471BDC1B20}" Type="string" KeyPath="no"/>
+          <RegistryValue Name="Extensions" Action="write" Value="uos" Type="string" KeyPath="no"/>
+          <RegistryValue Name="Name" Action="write" Value="UOF2.0" Type="string" KeyPath="no"/>
+        </RegistryKey>
+      </Component>
+    </DirectoryRef>
+
+
+
+    <!--powerpoint convertor-->
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="CMP_PPTCONVERTOREXPORT" Guid="{94A39D8F-A316-47BB-878D-7C7D7421EC04}">
+        <RegistryKey Root="HKLM" Key="SOFTWARE\Microsoft\Office\14.0\PowerPoint\Presentation Converters\OOXML Converters\Export\UOF Presentation Converter_51" Action="createAndRemoveOnUninstall">
+          <RegistryValue Name="Clsid" Action="write" Value="{AEC7E6B1-3D6E-41E0-A442-34A0D6995DA4}" Type="string" KeyPath="no"/>
+          <RegistryValue Name="Extensions" Action="write" Value="uop" Type="string" KeyPath="no"/>
+          <RegistryValue Name="Name" Action="write" Value="UOF2.0" Type="string" KeyPath="no"/>
+        </RegistryKey>
+        <RegistryKey Root="HKLM" Key="SOFTWARE\Microsoft\Office\15.0\PowerPoint\Presentation Converters\OOXML Converters\Export\UOF Presentation Converter_51" Action="createAndRemoveOnUninstall">
+          <RegistryValue Name="Clsid" Action="write" Value="{AEC7E6B1-3D6E-41E0-A442-34A0D6995DA4}" Type="string" KeyPath="no"/>
+          <RegistryValue Name="Extensions" Action="write" Value="uop" Type="string" KeyPath="no"/>
+          <RegistryValue Name="Name" Action="write" Value="UOF2.0" Type="string" KeyPath="no"/>
+        </RegistryKey>
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="CMP_PPTCONVERTORIMPORT" Guid="{D057F7DD-2A69-4D24-BD5C-6CD0824CD93D}">
+        <RegistryKey Root="HKLM" Key="SOFTWARE\Microsoft\Office\14.0\PowerPoint\Presentation Converters\OOXML Converters\Import\UOF Presentation Converter_51" Action="createAndRemoveOnUninstall">
+          <RegistryValue Name="Clsid" Action="write" Value="{AEC7E6B1-3D6E-41E0-A442-34A0D6995DA4}" Type="string" KeyPath="no"/>
+          <RegistryValue Name="Extensions" Action="write" Value="uop" Type="string" KeyPath="no"/>
+          <RegistryValue Name="Name" Action="write" Value="UOF2.0" Type="string" KeyPath="no"/>
+        </RegistryKey>
+        <RegistryKey Root="HKLM" Key="SOFTWARE\Microsoft\Office\15.0\PowerPoint\Presentation Converters\OOXML Converters\Import\UOF Presentation Converter_51" Action="createAndRemoveOnUninstall">
+          <RegistryValue Name="Clsid" Action="write" Value="{AEC7E6B1-3D6E-41E0-A442-34A0D6995DA4}" Type="string" KeyPath="no"/>
+          <RegistryValue Name="Extensions" Action="write" Value="uop" Type="string" KeyPath="no"/>
+          <RegistryValue Name="Name" Action="write" Value="UOF2.0" Type="string" KeyPath="no"/>
+        </RegistryKey>
+      </Component>
+    </DirectoryRef>
+
+    <!--word convertor-->
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="CMP_WORDCONVERTORDEFAULT" Guid="{0C6D1C8B-0042-4012-9517-A9FF4DF68BB9}">
+        <RegistryKey Root="HKLM" Key="SOFTWARE\Microsoft\Office\14.0\Word\Text Converters\Defaults" Action="createAndRemoveOnUninstall">
+          <RegistryValue Name="uof" Action="write" Value="UOF Word Converter" Type="string" KeyPath="no"/>
+        </RegistryKey>
+        <RegistryKey Root="HKLM" Key="SOFTWARE\Microsoft\Office\15.0\Word\Text Converters\Defaults" Action="createAndRemoveOnUninstall">
+          <RegistryValue Name="uof" Action="write" Value="UOF Word Converter" Type="string" KeyPath="no"/>
+        </RegistryKey>
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="CMP_WORDCONVERTOREXPORT" Guid="{B6AD982E-7EEB-4869-ABC5-55995B70387E}">
+        <RegistryKey Root="HKLM" Key="SOFTWARE\Microsoft\Office\14.0\Word\Text Converters\OOXML Converters\Export\UOF Word Converter_51" Action="createAndRemoveOnUninstall">
+          <RegistryValue Name="Clsid" Action="write" Value="{6970F0A4-88D6-4BAE-BC69-5C40E3598336}" Type="string" KeyPath="no"/>
+          <RegistryValue Name="Extensions" Action="write" Value="uot" Type="string" KeyPath="no"/>
+          <RegistryValue Name="Name" Action="write" Value="UOF2.0" Type="string" KeyPath="no"/>
+        </RegistryKey>
+        <RegistryKey Root="HKLM" Key="SOFTWARE\Microsoft\Office\15.0\Word\Text Converters\OOXML Converters\Export\UOF Word Converter_51" Action="createAndRemoveOnUninstall">
+          <RegistryValue Name="Clsid" Action="write" Value="{6970F0A4-88D6-4BAE-BC69-5C40E3598336}" Type="string" KeyPath="no"/>
+          <RegistryValue Name="Extensions" Action="write" Value="uot" Type="string" KeyPath="no"/>
+          <RegistryValue Name="Name" Action="write" Value="UOF2.0" Type="string" KeyPath="no"/>
+        </RegistryKey>
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="CMP_WORDCONVERTORIMPORT" Guid="{8A6FCBF3-5BE8-4777-8FAE-60F43F906214}">
+        <RegistryKey Root="HKLM" Key="SOFTWARE\Microsoft\Office\14.0\Word\Text Converters\OOXML Converters\Import\UOF Word Converter_51" Action="createAndRemoveOnUninstall">
+          <RegistryValue Name="Clsid" Action="write" Value="{6970F0A4-88D6-4BAE-BC69-5C40E3598336}" Type="string" KeyPath="no"/>
+          <RegistryValue Name="Extensions" Action="write" Value="uot" Type="string" KeyPath="no"/>
+          <RegistryValue Name="Name" Action="write" Value="UOF2.0" Type="string" KeyPath="no"/>
+        </RegistryKey>
+        <RegistryKey Root="HKLM" Key="SOFTWARE\Microsoft\Office\15.0\Word\Text Converters\OOXML Converters\Import\UOF Word Converter_51" Action="createAndRemoveOnUninstall">
+          <RegistryValue Name="Clsid" Action="write" Value="{6970F0A4-88D6-4BAE-BC69-5C40E3598336}" Type="string" KeyPath="no"/>
+          <RegistryValue Name="Extensions" Action="write" Value="uot" Type="string" KeyPath="no"/>
+          <RegistryValue Name="Name" Action="write" Value="UOF2.0" Type="string" KeyPath="no"/>
+        </RegistryKey>
+      </Component>
+    </DirectoryRef>
+
+    
+    
+   
+    
+    <!--associate file type of UOF to windows shell-->
+    <!--ppt-->
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="CMP_REMOVEUOPEXTENSION" Guid="{ED34098D-2C02-4BD1-81DB-CD3459D43D05}" KeyPath="yes">
+        <RemoveRegistryKey Root="HKCR" Key=".uop" Action="removeOnInstall" Id="RemoveUOP"/>
+      </Component>
+    </DirectoryRef>
+    
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="CMP_UOPEXTENSION" Guid="{4E6072E2-7476-40BB-815E-BD3690C26AEC}">
+        <RegistryValue Root="HKCR" Id="UOPExtension" Key=".uop" Action="write" Value="UOF20Presentation" Type="string" KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="CMP_UOFPRESENTATION" Guid="{87595B04-C8CE-484B-A3D1-DD92760A7A41}">
+        <RegistryKey Root="HKCR" Key="UOF20Presentation" Action="createAndRemoveOnUninstall">
+          <RegistryValue Key="DefaultIcon" Action="write" Value="[INSTALLFOLDER]uof.ico,0" KeyPath="no" Type="string"/>
+          <RegistryValue Key="shell\open\command" Action="write" Value='"[INSTALLFOLDER]UofTranslatorShell.exe" "%1"' KeyPath="no" Type="string"/>
+        </RegistryKey>
+        
+      </Component>
+    </DirectoryRef>
+
+    <!--excel-->
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="CMP_REMOVEUOSEXTENSION" Guid="{73DEDBDE-B731-4E6C-BEEF-6141370732CD}" KeyPath="yes">
+        <RemoveRegistryKey Root="HKCR" Key=".uos" Action="removeOnInstall" Id="RemoveUOS"/>
+      </Component>
+    </DirectoryRef>
+    
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="CMP_UOSEXTENSION" Guid="{0FCACDAF-EB7A-4CB5-A91A-59C4D37062BD}">
+        <RegistryValue Root="HKCR" Id="UOSExtension" Key=".uos" Action="write" Value="UOF20Spreadsheet" Type="string" KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="CMP_UOFSPREADSHEET" Guid="{E88A6B0A-0663-4647-B257-CECD3D32B36C}">
+        <RegistryKey Root="HKCR" Key="UOF20Spreadsheet" Action="createAndRemoveOnUninstall">
+          <RegistryValue Key="DefaultIcon" Action="write" Value="[INSTALLFOLDER]uof.ico,0" KeyPath="no" Type="string"/>
+          <RegistryValue Key="shell\open\command" Action="write" Value='"[INSTALLFOLDER]UofTranslatorShell.exe" "%1"' KeyPath="no" Type="string"/>
+        </RegistryKey>
+      </Component>
+    </DirectoryRef>
+
+    <!--word-->
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="CMP_REMOVEUOTEXTENSION" Guid="{D6C6AC4B-6108-41D4-AD00-1A5C94AA10C3}" KeyPath="yes">
+        <RemoveRegistryKey Root="HKCR" Key=".uot" Action="removeOnInstall" Id="RemoveUOT"/>
+      </Component>
+    </DirectoryRef>
+    
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="CMP_UOTEXTENSION" Guid="{3A229100-2A92-48A7-95B7-5CDC4C67C73A}">
+        <RegistryValue Root="HKCR" Id="UOTExtension" Key=".uot" Action="write" Value="UOF20WordProcess" Type="string" KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="CMP_UOFWORDPROCESS" Guid="{03C10E9E-095A-4436-B51E-7F4AFA5F51D3}">
+        <RegistryKey Root="HKCR" Key="UOF20WordProcess" Action="createAndRemoveOnUninstall">
+          <RegistryValue Key="DefaultIcon" Action="write" Value="[INSTALLFOLDER]uof.ico,0" KeyPath="no" Type="string"/>
+          <RegistryValue Key="shell\open\command" Action="write" Value='"[INSTALLFOLDER]UofTranslatorShell.exe" "%1"' KeyPath="no" Type="string"/>
+        </RegistryKey>
+      </Component>
+    </DirectoryRef>
+
+
+    <ComponentGroup Id="TemplateRegistryItems">
+      <!--template related-->
+      <ComponentRef Id="CMP_EGOVTEMPLATE1"/>
+      <ComponentRef Id="CMP_REMOVEEGOVTEMPLATE1"/>
+      <ComponentRef Id="CMP_EGOVTEMPLATE2"/>
+      <ComponentRef Id="CMP_REMOVEEGOVTEMPLATE2"/>
+      <ComponentRef Id="CMP_KNOWLEDGE1"/>
+      <ComponentRef Id="CMP_REMOVEKNOWLEDGE1"/>
+      <ComponentRef Id="CMP_KNOWLEDGE2"/>
+      <ComponentRef Id="CMP_REMOVEKNOWLEDGE2"/>
+      <ComponentRef Id="CMP_STANDARD1"/>
+      <ComponentRef Id="CMP_REMOVESTANDARD1"/>
+      <ComponentRef Id="CMP_STANDARD2"/>
+      <ComponentRef Id="CMP_REMOVESTANDARD2"/>
+    </ComponentGroup>
+    
+    <ComponentGroup Id="CoreRegistryItems">
+      <!--convertor related-->
+      <ComponentRef Id="CMP_EXCELCONVERTOREXPORT"/>
+      <ComponentRef Id="CMP_EXCELCONVERTORIMPORT"/>   
+      <ComponentRef Id="CMP_PPTCONVERTOREXPORT"/>
+      <ComponentRef Id="CMP_PPTCONVERTORIMPORT"/>
+      <ComponentRef Id="CMP_WORDCONVERTORDEFAULT"/>
+      <ComponentRef Id="CMP_WORDCONVERTOREXPORT"/>
+      <ComponentRef Id="CMP_WORDCONVERTORIMPORT"/>
+    </ComponentGroup>
+
+    <ComponentGroup Id="AssociateFileType">
+      <ComponentRef Id="CMP_REMOVEUOPEXTENSION"/>
+      <ComponentRef Id="CMP_REMOVEUOSEXTENSION"/>
+      <ComponentRef Id="CMP_REMOVEUOTEXTENSION"/>
+      <ComponentRef Id="CMP_UOPEXTENSION"/>
+      <ComponentRef Id="CMP_UOFPRESENTATION"/>
+      <ComponentRef Id="CMP_UOSEXTENSION"/>
+      <ComponentRef Id="CMP_UOFSPREADSHEET"/>
+      <ComponentRef Id="CMP_UOTEXTENSION"/>
+      <ComponentRef Id="CMP_UOFWORDPROCESS"/>
+    </ComponentGroup>
+    
+	</Fragment>
+</Wix>

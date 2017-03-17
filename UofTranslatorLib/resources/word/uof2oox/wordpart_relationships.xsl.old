@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+* Copyright (c) 2006, Beihang University, China
+* All rights reserved.
+*
+* Redistribution and use in source and binary forms, with or without
+* modification, are permitted provided that the following conditions are met:
+*
+*     * Redistributions of source code must retain the above copyright
+*       notice, this list of conditions and the following disclaimer.
+*     * Redistributions in binary form must reproduce the above copyright
+*       notice, this list of conditions and the following disclaimer in the
+*       documentation and/or other materials provided with the distribution.
+*     * Neither the name of Clever Age, nor the names of its contributors may
+*       be used to endorse or promote products derived from this software
+*       without specific prior written permission.
+*
+* THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND ANY
+* EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+* WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+* DISCLAIMED. IN NO EVENT SHALL THE REGENTS AND CONTRIBUTORS BE LIABLE FOR ANY
+* DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+* (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+* LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+* ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+* (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+* SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<!--
+<Author>Fang Chunyan(BITI)</Author>
+-->
+<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:xdt="http://www.w3.org/2005/xpath-datatypes" xmlns="http://schemas.openxmlformats.org/package/2006/relationships" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:uof="http://schemas.uof.org/cn/2003/uof" xmlns:图="http://schemas.uof.org/cn/2003/graph" xmlns:字="http://schemas.uof.org/cn/2003/uof-wordproc" xmlns:表="http://schemas.uof.org/cn/2003/uof-spreadsheet">
+  <xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes"/>
+  <xsl:template name="documentXmlRels">
+    <Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
+      <Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/settings" Target="settings.xml"/>
+      <Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/>    
+			<Relationship Id="rId6" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/fontTable" Target="fontTable.xml"/>
+    
+      <!-- relationship for header and footer-->
+      <xsl:for-each select="//字:分节/字:节属性/字:页眉/字:奇数页页眉
+                           |//字:分节/字:节属性/字:页眉/字:偶数页页眉
+                           |//字:分节/字:节属性/字:页眉/字:首页页眉">
+        <Relationship Id="{generate-id(.)}"
+         Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/header">
+          <xsl:attribute name="Target">
+            <xsl:value-of select="'header'"/>
+            <xsl:number count="字:奇数页页眉|字:偶数页页眉|字:首页页眉" level="any" format="1"/>
+            <xsl:value-of select="'.xml'" />
+          </xsl:attribute>
+        </Relationship>
+      </xsl:for-each>
+      <xsl:for-each select="//字:分节/字:节属性/字:页脚/字:奇数页页脚
+                           |//字:分节/字:节属性/字:页脚/字:偶数页页脚
+                           |//字:分节/字:节属性/字:页脚/字:首页页脚">
+        <Relationship  Id="{generate-id(.)}"
+         Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/footer">
+          <xsl:attribute name="Target">
+            <xsl:value-of select="'footer'"/>
+            <xsl:number count="字:奇数页页脚|字:偶数页页脚|字:首页页脚" level="any" format="1"/>
+            <xsl:value-of select="'.xml'" />
+          </xsl:attribute>
+        </Relationship>
+      </xsl:for-each>
+      <!--footnote and endnote-->
+      <xsl:if test ="//字:句/字:尾注">
+      <Relationship Id="rId9" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/endnotes" Target="endnotes.xml"/>
+			</xsl:if>
+      <xsl:if test ="//字:句/字:脚注">
+      <Relationship Id="rId8" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/footnotes" Target="footnotes.xml"/>
+      </xsl:if>
+      
+        <!--comments-->
+      <xsl:if test="/uof:UOF/uof:文字处理/字:公用处理规则/字:批注集">
+        <Relationship Id="rId5" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/comments" Target="comments.xml"/>
+      </xsl:if>
+      <!--hyperlinks-->
+      <xsl:for-each select ="//uof:链接集/uof:超级链接[@uof:目标]">
+        <xsl:variable name ="source">
+          <xsl:value-of select ="@uof:链源"/>
+        </xsl:variable>
+        <xsl:if test ="/uof:UOF/uof:文字处理/字:主体/node()[name(.)!='字:分节']//字:句[not(ancestor::字:脚注 or ancestor::字:尾注)]/字:区域开始[@字:类型='hyperlink']/@字:标识符=$source">
+          <xsl:apply-templates select ="." mode ="rels"/>
+        </xsl:if>
+      </xsl:for-each>
+      <!--numbering-->
+      <xsl:if test ="uof:式样集/uof:自动编号集">
+        <Relationship Id="rId4" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/numbering" Target="numbering.xml"/>
+      </xsl:if>
+      <!--picture-->
+      <xsl:for-each select ="/uof:UOF/uof:文字处理/字:主体/node()[name(.)!='字:分节']//字:句[not(ancestor::字:脚注 or ancestor::字:尾注)]/字:锚点">
+        <xsl:apply-templates select ="." mode ="rels"/>
+      </xsl:for-each>
+      <!--other-->
+    </Relationships>
+  </xsl:template>
+  <xsl:template match ="字:锚点" mode ="rels">
+    <xsl:variable name="anchorType">
+      <xsl:value-of select="@字:类型"/>
+    </xsl:variable>
+    <xsl:variable name="number">
+      <xsl:number count="字:锚点" format="1" level="any"/>
+    </xsl:variable>
+    <xsl:variable name ="objref" select ="字:图形/@字:图形引用"/>
+    <xsl:variable name ="isPic">
+      <xsl:if test ="//uof:其他对象/@uof:标识符 = $objref">
+        <xsl:value-of select ="'datapic'"/>
+      </xsl:if>
+      <xsl:if test ="//uof:对象集/图:图形[@图:标识符 = $objref]/@图:其他对象">
+        <xsl:value-of select ="'objpic'"/>
+      </xsl:if>
+      <xsl:if test ="not((//uof:对象集/uof:其他对象/@uof:标识符 = $objref) or (//uof:对象集/图:图形[@图:标识符 = $objref]/@图:其他对象))">
+        <xsl:value-of select ="'false'"/>
+      </xsl:if>
+    </xsl:variable>
+    <xsl:if test ="$isPic='datapic' or $isPic='objpic'">
+      <xsl:if test ="$isPic='datapic'">
+        <xsl:variable name ="id" select ="字:图形/@字:图形引用"/>
+        <xsl:apply-templates select ="//uof:其他对象[@uof:标识符 = $id]" mode ="rels">
+          <xsl:with-param name="num" select="$number"/>
+        </xsl:apply-templates>
+      </xsl:if>
+      <xsl:if test ="$isPic='objpic'">
+        <xsl:variable name ="id" select ="字:图形/@字:图形引用"/>
+        <xsl:variable name ="oid" select ="//uof:对象集/图:图形[@图:标识符 = $id]/@图:其他对象"/>
+        <xsl:apply-templates select ="//uof:其他对象[@uof:标识符 = $oid]" mode ="rels">
+          <xsl:with-param name="num" select="$number"/>
+        </xsl:apply-templates>
+      </xsl:if>
+    </xsl:if>
+  </xsl:template>
+ 
+  <xsl:template match ="uof:其他对象" mode ="rels">
+    <xsl:param name="num"/>
+    <Relationship Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image">
+      <xsl:variable name ="abspath">
+        <xsl:value-of select ="u2opic:picture/@u2opic:target" xmlns:u2opic="urn:u2opic:xmlns:post-processings:special"/>
+      </xsl:variable>
+      <xsl:variable name ="relpath">
+        <xsl:value-of select ="substring-after($abspath,'image')"/>
+      </xsl:variable>
+      <xsl:attribute name="Target">
+        <xsl:value-of select ="concat('media/image',$relpath)"/>
+      </xsl:attribute>
+      <xsl:attribute name="Id">
+        <xsl:value-of select="concat('rIdObj',$num)"/>
+      </xsl:attribute>
+    </Relationship>
+  </xsl:template>
+  <xsl:template match ="uof:超级链接" mode ="rels">
+    <Relationship Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink" TargetMode="External">
+      <xsl:variable name ="num">
+        <xsl:number count ="uof:超级链接[@uof:目标]" format ="1" level ="single"/>
+      </xsl:variable>
+      <xsl:variable name ="numid">
+        <xsl:call-template name="addOne">
+          <xsl:with-param name="source" select="$num"/>
+        </xsl:call-template>
+      </xsl:variable>
+      <xsl:attribute name="Id">
+        <xsl:value-of select ="concat('rId',$numid)"/>
+      </xsl:attribute>
+      <xsl:attribute name="Target">
+        <xsl:variable name ="target" select ="@uof:目标"/>
+        <xsl:choose>
+          <xsl:when test ="starts-with($target,'/')">
+            <xsl:variable name ="tar">
+              <xsl:value-of select ="translate(substring-after($target,'/'),'/','\')"/>
+            </xsl:variable>
+            <xsl:value-of select ="concat('file:///',$tar)"/>
+          </xsl:when>
+          <xsl:when test ="starts-with($target,'\')">
+            <xsl:variable name ="tar">
+              <xsl:value-of select ="translate(substring-after($target,'\'),'/','\')"/>
+            </xsl:variable>
+            <xsl:value-of select ="concat('file:///',$tar)"/>
+          </xsl:when>
+          <xsl:when test ="starts-with($target,'http:')">
+            <xsl:value-of select ="@uof:目标"/>
+          </xsl:when>
+          <xsl:when test ="starts-with($target,'ftp:')">
+            <xsl:value-of select ="@uof:目标"/>
+          </xsl:when>
+          <xsl:when test ="starts-with($target,'mailto:')">
+            <xsl:value-of select ="@uof:目标"/>
+          </xsl:when>
+          <xsl:when test ="starts-with($target,'telnet:')">
+            <xsl:value-of select ="@uof:目标"/>
+          </xsl:when>
+          <xsl:when test ="starts-with($target,'..')">
+            <xsl:value-of select ="$target"/>
+          </xsl:when>
+          <xsl:when test ="starts-with($target,'.')">
+            <xsl:variable name ="tar">
+              <xsl:value-of select ="translate($target,'/','\')"/>
+            </xsl:variable>
+            <xsl:value-of select ="concat('file://',$tar)"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select ="@uof:目标"/>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:attribute>
+    </Relationship>
+  </xsl:template>
+  <xsl:template name="addOne">
+    <xsl:param name="source"/>
+    <xsl:value-of select="$source + 10"/>
+  </xsl:template>
+  <xsl:template name ="otherXmlRels">
+    <xsl:param name ="relType"/>
+    <Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
+      <!--header,footer-->
+      <xsl:if test ="contains($relType,'页眉') or contains($relType,'页脚') ">
+        <xsl:for-each select =".//字:句[not(ancestor::字:脚注 or ancestor::字:尾注)]/字:区域开始[@字:类型='hyperlink']">
+          <xsl:variable name ="hyperid" select ="@字:标识符"/>     
+          <xsl:apply-templates select ="//uof:链接集/uof:超级链接[@uof:链源=$hyperid]" mode ="rels"/>
+        </xsl:for-each>
+        <xsl:for-each select =".//字:句[not(ancestor::字:脚注 or ancestor::字:尾注)]/字:锚点">
+          <xsl:variable name="number">
+            <xsl:number count="字:锚点" format="1" level="any"/>
+          </xsl:variable>
+          <xsl:apply-templates select ="." mode ="rels">
+            <xsl:with-param name="num" select="$number"/>
+          </xsl:apply-templates>
+        </xsl:for-each>
+      </xsl:if>
+      <!--endnote,footnote-->
+      <xsl:if test ="$relType='footnotes'">
+ 
+        <xsl:for-each select ="//uof:链接集/uof:超级链接[@uof:目标]">
+          <xsl:variable name ="source">
+            <xsl:value-of select ="@uof:链源"/>
+          </xsl:variable>
+          <xsl:if test ="//字:脚注//字:区域开始[@字:类型='hyperlink']/@字:标识符=$source">
+            <xsl:apply-templates select ="." mode ="rels"/>
+          </xsl:if>
+        </xsl:for-each>
+        <xsl:for-each select ="//字:脚注//字:锚点">
+          <xsl:variable name="number">
+            <xsl:number count="字:锚点" format="1" level="any"/>
+          </xsl:variable>
+          <xsl:variable name ="objref" select ="字:图形/@字:图形引用"/>
+          <xsl:variable name ="hasDef">
+            <xsl:if test ="preceding::字:尾注//字:锚点[字:图形/@字:图形引用=$objref]">
+              <xsl:value-of select ="'true'"/>
+            </xsl:if>
+            <xsl:if test ="//uof:对象集/图:图形[@图:标识符 = $objref]/@图:其他对象">
+              <xsl:variable name ="oobjid">
+                <xsl:value-of select ="//uof:对象集/图:图形[@图:标识符 = $objref]/@图:其他对象"/>
+              </xsl:variable>
+              <xsl:if test ="preceding::字:尾注//字:锚点/字:图形/@字:图形引用 = //uof:对象集/图:图形[@图:其他对象=$oobjid]/@字:图形引用">
+                <xsl:value-of select ="'true'"/>
+              </xsl:if>
+            </xsl:if>
+          </xsl:variable>
+          <xsl:if test ="$hasDef != 'true'">
+            <xsl:apply-templates select ="." mode ="rels">
+              <xsl:with-param name="num" select="$number"/>
+            </xsl:apply-templates>
+          </xsl:if>
+        </xsl:for-each>
+      </xsl:if>
+      <xsl:if test ="$relType='endnotes'">
+      
+        <xsl:for-each select ="//uof:链接集/uof:超级链接[@uof:目标]">
+          <xsl:variable name ="source">
+            <xsl:value-of select ="@uof:链源"/>
+          </xsl:variable>
+          <xsl:if test ="//字:尾注//字:区域开始[@字:类型='hyperlink']/@字:标识符=$source">
+            <xsl:apply-templates select ="." mode ="rels"/>
+          </xsl:if>
+        </xsl:for-each>
+        <xsl:for-each select ="//字:尾注//字:锚点">
+          <xsl:variable name="number">
+            <xsl:number count="字:锚点" format="1" level="any"/>
+          </xsl:variable>
+          <xsl:variable name ="objref" select ="字:图形/@字:图形引用"/>
+          <xsl:variable name ="hasDef">
+            <xsl:if test ="preceding::字:尾注//字:锚点[字:图形/@字:图形引用=$objref]">
+              <xsl:value-of select ="'true'"/>
+            </xsl:if>
+            <xsl:if test ="//uof:对象集/图:图形[@图:标识符 = $objref]/@图:其他对象">
+              <xsl:variable name ="oobjid">
+                <xsl:value-of select ="//uof:对象集/图:图形[@图:标识符 = $objref]/@图:其他对象"/>
+              </xsl:variable>
+              <xsl:if test ="preceding::字:尾注//字:锚点/字:图形/@字:图形引用 = //uof:对象集/图:图形[@图:其他对象=$oobjid]/@字:图形引用">
+                <xsl:value-of select ="'true'"/>
+              </xsl:if>
+            </xsl:if>
+          </xsl:variable>
+          <xsl:if test ="$hasDef != 'true'">
+            <xsl:apply-templates select ="." mode ="rels">
+              <xsl:with-param name="num" select="$number"/>
+            </xsl:apply-templates>
+          </xsl:if>
+        </xsl:for-each>
+      </xsl:if>
+      <!--comment-->
+      <xsl:if test ="$relType='comments'">
+        <xsl:for-each select ="//uof:链接集/uof:超级链接[@uof:目标]">
+          <xsl:variable name ="source">
+            <xsl:value-of select ="@uof:链源"/>
+          </xsl:variable>
+          <xsl:if test ="/uof:UOF/uof:文字处理/字:公用处理规则/字:批注集//字:句[not(ancestor::字:脚注 or ancestor::字:尾注)]/字:区域开始[@字:类型='hyperlink']/@字:标识符=$source">
+            <xsl:apply-templates select ="." mode ="rels"/>
+          </xsl:if>
+        </xsl:for-each>
+        <xsl:for-each select ="/uof:UOF/uof:文字处理/字:公用处理规则/字:批注集//字:句[not(ancestor::字:脚注 or ancestor::字:尾注)]/字:锚点">
+          <xsl:variable name="number">
+            <xsl:number count="字:锚点" format="1" level="any"/>
+          </xsl:variable>
+          <xsl:apply-templates select ="." mode ="rels">
+            <xsl:with-param name="num" select="$number"/>
+          </xsl:apply-templates>
+        </xsl:for-each>
+      </xsl:if>
+
+    </Relationships>
+  </xsl:template>
+</xsl:stylesheet>

@@ -1,0 +1,90 @@
+// UofTranslator2010.idl : IDL source for UofTranslator2010
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (UofTranslator2010.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(E58EECB0-4296-4DB5-ACAA-E172C09A3945),
+	dual,
+	nonextensible,
+	helpstring("IWordConverter2010 Interface"),
+	pointer_default(unique)
+]
+interface IWordConverter2010 : IDispatch{
+};
+[
+	object,
+	uuid(B23AA764-1430-4252-A41C-E4D3AE091F81),
+	dual,
+	nonextensible,
+	helpstring("ISpreadsheetConverter2010 Interface"),
+	pointer_default(unique)
+]
+interface ISpreadsheetConverter2010 : IDispatch{
+};
+[
+	object,
+	uuid(A81BB05F-30D4-4FE6-BC6A-191758BFC5A6),
+	dual,
+	nonextensible,
+	helpstring("IPresentationConverter2010 Interface"),
+	pointer_default(unique)
+]
+interface IPresentationConverter2010 : IDispatch{
+};
+[
+	object,
+	uuid(6B788F0C-89E6-45C3-8E02-6682A1500F72),
+	dual,
+	nonextensible,
+	helpstring("IConvPrefs Interface"),
+	pointer_default(unique)
+]
+interface IConvPrefs : IDispatch{
+};
+[
+	uuid(AAE59A92-0CFE-4DC7-B386-35DE786B90FB),
+	version(1.0),
+	helpstring("UofTranslator2010 1.0 Type Library")
+]
+library UofTranslator2010Lib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(6970F0A4-88D6-4BAE-BC69-5C40E3598336),
+		helpstring("WordConverter2010 Class")
+	]
+	coclass WordConverter2010
+	{
+		[default] interface IWordConverter2010;
+	};
+	[
+		uuid(ADBE850B-D37F-4422-B66E-88471BDC1B20),
+		helpstring("SpreadsheetConverter2010 Class")
+	]
+	coclass SpreadsheetConverter2010
+	{
+		[default] interface ISpreadsheetConverter2010;
+	};
+	[
+		uuid(AEC7E6B1-3D6E-41E0-A442-34A0D6995DA4),
+		helpstring("PresentationConverter2010 Class")
+	]
+	coclass PresentationConverter2010
+	{
+		[default] interface IPresentationConverter2010;
+	};
+	[
+		uuid(18FE73EE-B6B2-4A9F-B206-7587182A7330),
+		helpstring("ConvPrefs Class")
+	]
+	coclass ConvPrefs
+	{
+		[default] interface IConvPrefs;
+	};
+};

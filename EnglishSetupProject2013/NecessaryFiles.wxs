@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+     xsi:schemaLocation="http://schemas.microsoft.com/wix/2006/wi WiX.xsd" xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+	<Fragment>
+
+    
+    <!--config files-->
+    <DirectoryRef Id="LOGCONFIGFOLDER">
+      <Component Id="CMP_SysConfig" Guid="{A7C26D1E-7121-45C7-8E05-F563F79BA7EB}">
+        <File Id="FILE_SysConfig" Source="lib\conf\config.xml" KeyPath="yes">
+          <util:PermissionEx User="Everyone" GenericAll="yes"/>
+        </File>
+      </Component>
+      <Component Id="CMP_LogConfig" Guid="{CEA39D65-08C5-406A-8F03-E59DB6A6A4FB}">
+        <File Id="FILE_LogConfig" Source="lib\conf\log4net.config" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+
+    <!--user guid-->
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="CMP_UserGuid" Guid="{39E7D9CE-27B1-454C-B3A3-661994B9633F}">
+        <File Id="FILE_UserGuid" Source="!(wix.UserGuideName)" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+
+    <!--uof file icon-->
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="CMP_UOFIcon" Guid="{13EACC41-5F67-4D07-A3B9-E77DD23AA539}">
+        <File Id="FILE_UOFIcon" Source="uof.ico" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+
+    <!--short cut-->
+    <DirectoryRef Id="UOFTranslator41ShortcutFolder">
+      <Component Id="CMP_SHORTCUT" Guid="{4B4D69CB-D39E-4185-9FCB-C25D0FCFC890}">
+        <Shortcut Id="ApplicationShortcut" Name="UOF Translator4.1 User Guide" Target ="[INSTALLFOLDER]!(wix.UserGuideName)" />
+        <Shortcut Id="UnstallApplication" Name="Unstall Application" Target="[SystemFolder]msiexec.exe" Arguments="/x [ProductCode]" />
+        <RemoveFolder Id="RemoveShortcut" On="uninstall"/>
+        <RegistryValue Root="HKCU" Key="Software\Microsoft\UOFTranslator41" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+
+    <!--zip utility dll-->
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="CMP_UOFZIPUTIL" Guid="{E5D42DF8-4B19-433B-9BEA-33A4ED7590FC}">
+        <File Id="FILE_UOFZIPUTIL" Source="$(var.UofZipUtils.TargetPath)" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+
+    <!--log4 dll-->
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="CMP_LOG4DLL" Guid="{F8B9AB9F-703E-42E1-A032-680BE6FBBA2A}">
+        <File Id="FILE_LOG4DLL" Source="lib\log4net.dll" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+
+    <!--office components-->
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="CMP_WORD" Guid="{D2C89E45-C190-4A3D-948A-9246E6C1DCF1}">
+        <File Id="FILE_WORD" Source="lib\Microsoft.Office.Interop.Word.dll" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="CMP_INTERP" Guid="{F982AE58-FF02-44DE-9A9C-38E17F52BFCF}">
+        <File Id="FILE_INTERP" Source="lib\Microsoft.Vbe.Interop.dll" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="CMP_OFFICE" Guid="{BBBF1D23-AB4D-4F78-ADEE-03939DB93486}">
+        <File Id="FILE_OFFICE" Source="lib\office.dll" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+
+    <!--UofTranslatorLib.dll-->
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="CMP_UOFTRANSLATORLIBDLL" Guid="{178A5DDD-C48F-4BF3-A6D2-56E284D5AD8A}">
+        <File Id="FILE_UOFTRANSLATORLIBDLL" Source="$(var.UofTranslatorLib.TargetPath)" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+
+    
+    <!--AtlUofTranslatorDll.dll-->
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="CMP_ATLUOFTRANSLATORDLL" Guid="{71002649-00C7-4C69-8283-3D4FB8D5DF1E}">
+        <File Id="FILE_ATLUOFTRANSLATORDLL" Source="$(var.AtlUofTranslatorDll.TargetPath)" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+
+    <!--stdole.dll-->
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="CMP_STDOLEDLL" Guid="{EF1161EF-A269-41F8-859C-BF518DBB94A2}">
+        <File Id="FILE_STDOLEDLL" Source="lib\stdole.dll" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+
+    <!--msvcr100d.dll-->
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="CMP_MSVCRDLL" Guid="{C6DF97C3-150B-4355-A17B-B900D29A50FD}">
+        <File Id="FILE_MSVCRDLL" Source="lib\msvcr100d.dll" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+
+    <!--UofAddinLib.dll-->
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="CMP_UOFADDINLIB" Guid="{92AF56BF-E553-49A6-AEB1-24A17476A2A8}">
+        <File Id="FILE_UOFADDINLIB" Source="$(var.UofAddinLib.TargetPath)" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+
+    <!--Cmd Convertor components-->
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="CMP_CMDCONVERTOREXE" Guid="{39452536-B188-4CB5-8E07-B849A879E666}">
+        <File Id="FILE_CMDCONVERTOREXE" Source="$(var.UofCmdConverter.TargetPath)" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="CMP_CMDCONVERTORCONFIG" Guid="{6FB2DF7F-70E3-47AB-96CE-B8541DAD19C2}">
+        <File Id="FILE_CMDCONVERTORCONFIG" Source="$(var.UofCmdConverter.TargetDir)UofCmdConverter.exe.config" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+
+    <!--UOF Translator Shell-->
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="CMP_SHELLEXE" Guid="{DD848593-7630-42D6-89CF-E03EA9BB45D1}">
+        <File Id="FILE_SHELLEXE" Source="$(var.UofTranslatorShell.TargetPath)" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="CMP_SHELLCONFIG" Guid="{04B32C42-C3D3-4077-8995-30A9CC360A35}">
+        <File Id="FILE_SHELLCONFIG" Source="$(var.UofTranslatorShell.TargetDir)UofTranslatorShell.exe.config" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+
+    <!--UOF STD Convertor-->
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="CMP_STDCONVERTOREXE" Guid="{B64C9C64-FB97-4BE2-8B34-FDE38A6BBC53}">
+        <File Id="FILE_STDCONVERTOREXEEXE" Source="$(var.UofStdConverter.TargetPath)" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="CMP_STDCONVERTOREXECONFIG" Guid="{72686CD3-DAF3-4D4B-9EEE-A62506C201F7}">
+        <File Id="FILE_STDCONVERTOREXECONFIG" Source="$(var.UofStdConverter.TargetDir)UofStdConverter.exe.config" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+
+    <!--UOF Translator 2010-->
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="CMP_TRANSLATOR2010EXE" Guid="{3B8DE37A-ADCF-4CA8-AA27-80B609DFEB27}">
+        <File Id="FILE_TRANSLATOR2010EXE" Source="$(var.UofTranslator2010.TargetPath)" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+
+    <!--UOF Shell Extention-->
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="CMP_UOFSHELLEXTEXE" Guid="{EB289B0D-85BF-46F7-BD29-D66768B76F09}">
+        <File Id="FILE_UOFSHELLEXTEXE" Source="$(var.UofShellExt.TargetPath)" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+
+    <!--language resource components-->
+    <DirectoryRef Id="ENUS">
+      <Component Id="CMP_UOFLIBEN" Guid="{521607C6-C062-4BD4-AB56-F199EEC08AB8}">
+        <File Id="FILE_UOFLIBEN" Source="$(var.UofAddinLib.TargetDir)en-US\UofAddinLib.resources.dll" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="EN">
+      <Component Id="CMP_UOFLIBEN2" Guid="{EF6E83FB-26AA-4FC4-A28F-89F93B6C3021}">
+        <File Id="FILE_UOFLIBEN2" Source="$(var.UofAddinLib.TargetDir)en\UofAddinLib.resources.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="CMP_UOFCMDCONVERTOREN" Guid="{3AB576B4-104F-4901-9054-E575F5453A48}">
+        <File Id="FILE_UOFCMDCONVERTOREN" Source="$(var.UofCmdConverter.TargetDir)en\UofCmdConverter.resources.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="CMP_UOFSHELLEN" Guid="{75507BF5-C699-4179-A5DC-19B0EB7EAF31}">
+        <File Id="FILE_UOFSHELLEN" Source="$(var.UofShellExt.TargetDir)en\UofShellExt.resources.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="CMP_UOFSTDCONVERTOREN" Guid="{23B45038-057E-4FAD-82C7-9422D745311D}">
+        <File Id="FILE_UOFSTDCONVERTOREN" Source="$(var.UofStdConverter.TargetDir)en\UofStdConverter.resources.dll" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="CHS">
+      <Component Id="CMP_UOFLIBCH" Guid="{C210C0AC-8859-4A6E-A7D1-6F2236E3B407}">
+        <File Id="FILE_UOFLIBCH" Source="$(var.UofAddinLib.TargetDir)zh-CHS\UofAddinLib.resources.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="CMP_UOFCMDCONVERTORCH" Guid="{4CDC92E9-7679-4DDC-9D3D-A3305026F1D2}">
+        <File Id="FILE_UOFCMDCONVERTORCH" Source="$(var.UofCmdConverter.TargetDir)zh-CHS\UofCmdConverter.resources.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="CMP_UOFSHELLCH" Guid="{FBE50B3D-F865-4F93-A3CA-2B073728713B}">
+        <File Id="FILE_UOFSHELLCH" Source="$(var.UofShellExt.TargetDir)zh-CHS\UofShellExt.resources.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="CMP_UOFSTDCONVERTORCH" Guid="{E3A9DA24-E5CC-4652-9EBB-BD66CA3E43FF}">
+        <File Id="FILE_UOFSTDCONVERTORCH" Source="$(var.UofStdConverter.TargetDir)zh-CHS\UofStdConverter.resources.dll" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+
+    <!--zlibwapi.dll-->
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="CMP_ZLIBWAPI" Guid="{7345E64E-DF42-4E56-8C13-E61059E45E41}">
+        <File Id="FILE_ZLIBWAPI" Source="lib\zlibwapi.dll" KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+
+    <Component Id="CMP_ZLIBWAPI2" Guid="{9B5A901C-1C6D-4CAA-B03D-18EB97B62F63}" Directory="System32">
+      <File Id="FILE_ZLIBWAPI2" Source="lib\zlibwapi.dll" KeyPath="yes"/>
+    </Component>
+
+
+    <!--exceloox2uof.dll etc.-->
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="CMP_EXCELOOX2UOF" Guid="{0F373BA5-A037-44D0-A6FB-D540EAB85849}">
+        <File Id="FILE_EXCELOOX2UOF" Source="$(var.UofTranslatorLib.ProjectDir)excel_oox2uof.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="CMP_EXCELUOF2OOX" Guid="{0BF91067-22C2-4C30-9CEF-7E50D6D01DA1}">
+        <File Id="FILE_EXCELUOF2OOX" Source="$(var.UofTranslatorLib.ProjectDir)excel_uof2oox.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="CMP_PPTOOX2UOF" Guid="{B9247637-62B9-4776-AAB3-5D61182B270A}">
+        <File Id="FILE_PPTOOX2UOF" Source="$(var.UofTranslatorLib.ProjectDir)ppt_oox2uof.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="CMP_PPTUOF2OOX" Guid="{166D0E30-4FA5-438D-988F-DBAD0351B17A}">
+        <File Id="FILE_PPTUOF2OOX" Source="$(var.UofTranslatorLib.ProjectDir)ppt_uof2oox.dll" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+    
+    <!--other necessary files-->
+    <ComponentGroup Id="OtherNecessaryFiles">
+      <ComponentRef Id="CMP_UOFIcon"/>
+      <ComponentRef Id="CMP_UOFZIPUTIL"/>
+      <ComponentRef Id="CMP_LOG4DLL"/>
+      <ComponentRef Id="CMP_WORD"/>
+      <ComponentRef Id="CMP_OFFICE"/>
+      <ComponentRef Id="CMP_INTERP"/>
+      <ComponentRef Id="CMP_UOFTRANSLATORLIBDLL"/>
+      <ComponentRef Id="CMP_ATLUOFTRANSLATORDLL"/>
+      <ComponentRef Id="CMP_STDOLEDLL"/>
+      <ComponentRef Id="CMP_UOFADDINLIB"/>
+      <ComponentRef Id="CMP_SHELLCONFIG"/>
+      <ComponentRef Id="CMP_STDCONVERTOREXE"/>
+      <ComponentRef Id="CMP_STDCONVERTOREXECONFIG"/>
+      <ComponentRef Id="CMP_TRANSLATOR2010EXE"/>
+      <ComponentRef Id="CMP_UOFSHELLEXTEXE"/>
+      <ComponentRef Id="CMP_ZLIBWAPI"/>
+      <ComponentRef Id="CMP_ZLIBWAPI2"/>
+      <ComponentRef Id="CMP_EXCELOOX2UOF"/>
+      <ComponentRef Id="CMP_EXCELUOF2OOX"/>
+      <ComponentRef Id="CMP_PPTOOX2UOF"/>
+      <ComponentRef Id="CMP_PPTUOF2OOX"/>
+      <ComponentRef Id="CMP_MSVCRDLL"/>
+    </ComponentGroup>
+
+    <!--cmd uof translator-->
+    <ComponentGroup Id="CommandLineTools">
+      <ComponentRef Id="CMP_CMDCONVERTOREXE"/>
+      <ComponentRef Id="CMP_CMDCONVERTORCONFIG"/>
+    </ComponentGroup>
+    
+    <!--windows shell extension component group-->
+    <ComponentGroup Id="WindowsShellExts">
+      <ComponentRef Id="CMP_SHELLEXE"/>
+    </ComponentGroup>
+    
+    <!--config files component group-->
+    <ComponentGroup Id="LogFiles">
+      <ComponentRef Id="CMP_LogConfig"/>
+      <ComponentRef Id="CMP_SysConfig"/>
+    </ComponentGroup>
+
+    <!--user guide-->
+    <ComponentGroup Id="UserGuid">
+      <ComponentRef Id="CMP_UserGuid"/>
+    </ComponentGroup>
+
+    <!--shortcut-->
+    <ComponentGroup Id="Shortcut">
+      <ComponentRef Id="CMP_SHORTCUT"/>
+    </ComponentGroup>
+
+    <!--Language Resource-->
+    <ComponentGroup Id="LanguageResource">
+      <ComponentRef Id="CMP_UOFLIBEN"/>
+      <ComponentRef Id="CMP_UOFLIBEN2"/>
+      <ComponentRef Id="CMP_UOFCMDCONVERTOREN"/>
+      <ComponentRef Id="CMP_UOFSHELLEN"/>
+      <ComponentRef Id="CMP_UOFSTDCONVERTOREN"/>
+      <!--zh-CHS-->
+      <ComponentRef Id="CMP_UOFLIBCH"/>
+      <ComponentRef Id="CMP_UOFCMDCONVERTORCH"/>
+      <ComponentRef Id="CMP_UOFSHELLCH"/>
+      <ComponentRef Id="CMP_UOFSTDCONVERTORCH"/>
+    </ComponentGroup>
+    
+	</Fragment>
+</Wix>

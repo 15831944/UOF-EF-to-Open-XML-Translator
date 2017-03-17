@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<o:featuredcontent lcid="[languageID]" xmlns:o="urn:schemas-microsoft-com:office:office">
+  <o:application id="WD">
+    <o:featuredtemplates startdate="2007-01-01" enddate="2030-12-31">
+      <!-- 18. standreport  -->
+      <o:featuredtemplate source="[TARGETURL]standreport.dotx" title="UOF-compatible standard report">
+        <o:media mediatype="png" filename="standreport_nail.png" source="[TARGETDIR]\standreport_nail.png" />
+        <o:preview filename="standreport_preview.png" source="[TARGETDIR]\standreport_preview.png" />
+      </o:featuredtemplate>
+      <!-- 19. standard document  -->
+      <o:featuredtemplate source="[TARGETURL]standdocument.dotx" title="UOF-compatible standard document">
+        <o:media mediatype="png" filename="standdocument_nail.png" source="[TARGETDIR]\standdocument_nail.png" />
+        <o:preview filename="standdocument_preview.png" source="[TARGETDIR]\standdocument_preview.png" />
+      </o:featuredtemplate>
+      <!-- 20. standard manner of writing  -->
+      <o:featuredtemplate source="[TARGETURL]downwriting.dotx" title="UOF-compatible standard writing">
+        <o:media mediatype="png" filename="downwriting_nail.png" source="[TARGETDIR]\downwriting_nail.png" />
+        <o:preview filename="downwriting_preview.png" source="[TARGETDIR]\downwriting_preview.png" />
+      </o:featuredtemplate>
+      <!-- 21. stand bulletin  -->
+      <o:featuredtemplate source="[TARGETURL]standbulletin.dotx" title="UOF-compatible standard bulletin ">
+        <o:media mediatype="png" filename="standbulletin_nail.png" source="[TARGETDIR]\standbulletin_nail.png" />
+        <o:preview filename="standbulletin_preview.png" source="[TARGETDIR]\standbulletin_preview.png" />
+      </o:featuredtemplate>
+      <!-- 22. conference summary -->
+      <o:featuredtemplate source="[TARGETURL]confsummary.dotx" title="UOF-compatible conference summary (common)">
+        <o:media mediatype="png" filename="confsummary_nail.png" source="[TARGETDIR]\confsummary_nail.png" />
+        <o:preview filename="confsummary_preview.png" source="[TARGETDIR]\confsummary_preview.png" />
+      </o:featuredtemplate>
+      <!-- 23. ssdecision -->
+      <o:featuredtemplate source="[TARGETURL]ssdecision.dotx" title="UOF-compatible decision">
+        <o:media mediatype="png" filename="ssdecision_nail.png" source="[TARGETDIR]\ssdecision_nail.png" />
+        <o:preview filename="ssdecision_preview.png" source="[TARGETDIR]\ssdecision_preview.png" />
+      </o:featuredtemplate>
+      <!-- 24. command solo sign  -->
+      <o:featuredtemplate source="[TARGETURL]solosigncommand.dotx" title="UOF-compatible command (solo sign)">
+        <o:media mediatype="png" filename="sscommand_nail.png" source="[TARGETDIR]\sscommand_nail.png" />
+        <o:preview filename="sscommand_preview.png" source="[TARGETDIR]\sscommand_preview.png" />
+      </o:featuredtemplate>
+      <!-- 25. replies  -->
+      <o:featuredtemplate source="[TARGETURL]replies.dotx" title="UOF-compatible replies">
+        <o:media mediatype="png" filename="replies_nail.png" source="[TARGETDIR]\replies_nail.png" />
+        <o:preview filename="replies_preview.png" source="[TARGETDIR]\replies_preview.png" />
+      </o:featuredtemplate>
+      <!-- 26.  request  -->
+      <o:featuredtemplate source="[TARGETURL]ssrequest.dotx" title="UOF-compatible request">
+        <o:media mediatype="png" filename="ssrequest_nail.png" source="[TARGETDIR]\ssrequest_nail.png" />
+        <o:preview filename="ssrequest_preview.png" source="[TARGETDIR]\ssrequest_preview.png" />
+      </o:featuredtemplate>
+      <!-- 27. aviso  -->
+      <o:featuredtemplate source="[TARGETURL]ssaviso.dotx" title="UOF-compatible aviso">
+        <o:media mediatype="png" filename="ssaviso_nail.png" source="[TARGETDIR]\ssaviso_nail.png" />
+        <o:preview filename="ssaviso_preview.png" source="[TARGETDIR]\ssaviso_preview.png" />
+      </o:featuredtemplate>
+      <!-- 28. notify  -->
+      <o:featuredtemplate source="[TARGETURL]ssnotify.dotx" title="UOF-compatible notify">
+        <o:media mediatype="png" filename="ssnotify_nail.png" source="[TARGETDIR]\ssnotify_nail.png" />
+        <o:preview filename="ssnotify_preview.png" source="[TARGETDIR]\ssnotify_preview.png" />
+      </o:featuredtemplate>
+      <!-- 29. letter  -->
+      <o:featuredtemplate source="[TARGETURL]ssletter.dotx" title="UOF-compatible letter">
+        <o:media mediatype="png" filename="ssletter_nail.png" source="[TARGETDIR]\ssletter_nail.png" />
+        <o:preview filename="ssletter_preview.png" source="[TARGETDIR]\ssletter_preview.png" />
+      </o:featuredtemplate>
+      <!-- 30. proposal  -->
+      <o:featuredtemplate source="[TARGETURL]ssproposal.dotx" title="UOF-compatible proposal">
+        <o:media mediatype="png" filename="ssproposal_nail.png" source="[TARGETDIR]\ssproposal_nail.png" />
+        <o:preview filename="ssproposal_preview.png" source="[TARGETDIR]\ssproposal_preview.png" />
+      </o:featuredtemplate>
+      <!-- 31. opinion -->
+      <o:featuredtemplate source="[TARGETURL]ssopinion.dotx" title="UOF-compatible opinion">
+        <o:media mediatype="png" filename="ssopinion_nail.png" source="[TARGETDIR]\ssopinion_nail.png" />
+        <o:preview filename="ssopinion_preview.png" source="[TARGETDIR]\ssopinion_preview.png" />
+      </o:featuredtemplate>
+      <!-- 32. decision of reason -->
+      <o:featuredtemplate source="[TARGETURL]Decision.dotx" title="UOF-compatible decision">
+        <o:media mediatype="png" filename="Decision_thumbnail.png" source="[TARGETDIR]\Decision_thumbnail.png" />
+        <o:preview filename="Decision_preview.png" source="[TARGETDIR]\Decision_preview.png" />
+      </o:featuredtemplate>
+      <!-- 33. plan863 -->
+      <o:featuredtemplate source="[TARGETURL]863_application.dotx" title="UOF-compatible 863 plan">
+        <o:media mediatype="png" filename="863_application_Thumbnail.png" source="[TARGETDIR]\863_application_Thumbnail.png" />
+        <o:preview filename="863_application_Preview.png" source="[TARGETDIR]\863_application_Preview.png" />
+      </o:featuredtemplate>
+      <!-- 34. document format GT -->
+      <o:featuredtemplate source="[TARGETURL]doc_format_GB.dotx" title="UOF-compatible document format">
+        <o:media mediatype="png" filename="doc_format_GB_nail.png" source="[TARGETDIR]\doc_format_GB_nail.png" />
+        <o:preview filename="doc_format_GB_preview.png" source="[TARGETDIR]\doc_format_GB_preview.png" />
+      </o:featuredtemplate>
+    </o:featuredtemplates>
+  </o:application>
+</o:featuredcontent>

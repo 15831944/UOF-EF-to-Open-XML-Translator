@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="UofCompressAdapter" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Config">
+    <xs:annotation>
+      <xs:documentation>The config definition for Uof adapter</xs:documentation>
+    </xs:annotation>
+    <xs:complexType id="ConfigType">
+      <xs:sequence>
+        <xs:element ref="Oox2UofAdapter" minOccurs="1" maxOccurs="1"/>
+        <xs:element ref="Uof2OoxAdapter" minOccurs="1" maxOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="AssemblyName" type="xs:string" nillable="false"/>
+  <xs:element name="ClassName" type="xs:string" nillable="false"/>
+
+  <xs:element name="Oox2UofAdapter">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Type">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:enumeration value="oox2uof"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element ref="AssemblyName" minOccurs="1" maxOccurs="1"/>
+        <xs:element ref="ClassName" minOccurs="1" maxOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="Uof2OoxAdapter">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Type">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:enumeration value="uof2oox"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element ref="AssemblyName" minOccurs="1" maxOccurs="1"/>
+        <xs:element ref="ClassName" minOccurs="1" maxOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

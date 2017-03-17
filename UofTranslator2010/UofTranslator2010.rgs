@@ -1,0 +1,11 @@
+HKCR
+{
+	NoRemove AppID
+	{
+		'%APPID%' = s 'UofTranslator2010'
+		'UofTranslator2010.EXE'
+		{
+			val AppID = s '%APPID%'
+		}
+	}
+}

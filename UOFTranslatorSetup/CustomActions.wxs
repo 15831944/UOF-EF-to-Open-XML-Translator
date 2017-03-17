@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"  
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.microsoft.com/wix/2006/wi WiX.xsd"
+      xmlns:util="http://schemas.microsoft.com/wix/UtilExtension" xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension">
+	<Fragment>
+
+    <PropertyRef Id="NETFRAMEWORK40FULLINSTALLROOTDIR"/>
+    
+    
+    <!--Position of Custom Actions-->
+    <Binary Id="CUSTOMSETUPACTIONS" SourceFile="$(var.CustomSetupActions.TargetDir)CustomSetupActions.CA.dll"/>
+    
+    <!--Set parameters for the custom action: ModifyTemplate--> 
+    <CustomAction Id="SetModifyTemplateDataValue" Return="check" Property="ModifyWordTemplate" Value="InstallFolder=[INSTALLFOLDER]"/>
+    
+    <!--Modify word template config file, replaceing value [TARGETDIR] in config file with path of installing directory--> 
+    <CustomAction Id="ModifyWordTemplate" BinaryKey="CUSTOMSETUPACTIONS" DllEntry="ModifyWordTemplate" Execute="deferred" Return="check" />
+    <CustomAction Id="RemoveWordTemplate" BinaryKey="CUSTOMSETUPACTIONS" DllEntry="RemoveWordTemplateReg" Execute="deferred" Return="check" />
+
+
+    <!--register uof type in office-->
+    <CustomAction Id="SetRegisterFileTypeCommandName" Property="RegisterFileType" Value="&quot;[INSTALLFOLDER]UofTranslator2010.exe&quot; /regserver" Execute="immediate"/>
+    <CustomAction Id="RegisterFileType" BinaryKey="WixCA" DllEntry="CAQuietExec" Execute="deferred" Return="check" Impersonate="no"/>
+    <!--unregister uof type in office-->
+    <CustomAction Id="SetUnRegisterFileTypeCommandName" Property="UnRegisterFileType" Value="&quot;[INSTALLFOLDER]UofTranslator2010.exe&quot; /unregserver" Execute="immediate"/>
+    <CustomAction Id="UnRegisterFileType" BinaryKey="WixCA" DllEntry="CAQuietExec" Execute="deferred" Return="ignore" Impersonate="no"/>
+
+    <!--register window shell extension--> 
+    <CustomAction Id="SetWindowsShellExtCommandName" Return="check" Property="WindowsShellExtension" Value="InstallFolder=[INSTALLFOLDER]"/>
+    <CustomAction Id="WindowsShellExtension" BinaryKey="CUSTOMSETUPACTIONS" DllEntry="RegisterShellExtCOM" Execute="deferred" Return="check" Impersonate="no"/>
+
+    <!--unregister window shell extension--> 
+    <CustomAction Id="SetUnWindowsShellExtCommandName" Return="check" Property="UnWindowsShellExtension" Value="InstallFolder=[INSTALLFOLDER]"/>
+    <CustomAction Id="UnWindowsShellExtension" BinaryKey="CUSTOMSETUPACTIONS" DllEntry="UnRegisterShellExtCOM" Execute="deferred" Return="check" Impersonate="no"/>
+
+    <!--register office x64-->
+    <CustomAction Id="SupportX64Office" BinaryKey="CUSTOMSETUPACTIONS" DllEntry="X64OfficeRegister"/>
+    <!--unregister office x64-->
+    <CustomAction Id="UnSupportX64Office" BinaryKey="CUSTOMSETUPACTIONS" DllEntry="X64OfficeUnRegister"/>
+
+    <!--register window shell extension -->
+    <!--
+    <CustomAction Id="SetWindowsShellExtCommandName" Property="WindowsShellExtension" Value="&quot;[NETFRAMEWORK40FULLINSTALLROOTDIR]regasm.exe&quot; &quot;[INSTALLFOLDER]UofShellExt.dll&quot; /codebase" Execute="immediate"/>
+    <CustomAction Id="WindowsShellExtension" BinaryKey="WixCA" DllEntry="CAQuietExec" Execute="deferred" Return="check" Impersonate="no"/>
+    --><!--unregister window shell extension --><!--
+    <CustomAction Id="SetUnWindowsShellExtCommandName" Property="UnWindowsShellExtension" Value="&quot;[NETFRAMEWORK40FULLINSTALLROOTDIR]regasm.exe&quot; &quot;[INSTALLFOLDER]UofShellExt.dll&quot; /u" Execute="immediate"/>
+    <CustomAction Id="UnWindowsShellExtension" BinaryKey="WixCA" DllEntry="CAQuietExec" Execute="deferred" Return="check" Impersonate="no"/>-->
+
+  </Fragment>
+</Wix>

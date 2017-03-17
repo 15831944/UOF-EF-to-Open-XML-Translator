@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<o:featuredcontent lcid="[languageID]" xmlns:o="urn:schemas-microsoft-com:office:office">
+    <o:application id="WD">
+        <o:featuredtemplates startdate="2007-01-01" enddate="2030-12-31">
+
+      <!-- 1. Command -->
+          <o:featuredtemplate source="[TARGETDIR]uoftemplate\UOFCommand.dotx" title="UOF-compatible Command">
+            <o:media mediatype="png" filename="UOFCommandSmall.png" source="[TARGETDIR]uoftemplate\UOFCommandSmall.png"/>
+            <o:preview filename="UOFCommandBig.png" source="[TARGETDIR]uoftemplate\UOFCommandBig.png"/>
+          </o:featuredtemplate>
+      <!-- 2. Meeting minutes -->
+          <o:featuredtemplate source="[TARGETDIR]uoftemplate\MeetingMinutes.dotx" title="UOF-compatible Meeting minutes">
+            <o:media mediatype="png" filename="Meeting_minutes_thumbnail.png" source="[TARGETDIR]uoftemplate\Meeting_minutes_thumbnail.png"/>
+            <o:preview filename="Meeting_minutes_preview.png" source="[TARGETDIR]uoftemplate\Meeting_minutes_preview.png"/>
+          </o:featuredtemplate>
+
+      <!-- 3. Announcement-->
+          <o:featuredtemplate source="[TARGETDIR]uoftemplate\Announcement.dotx" title="UOF-compatible Announcement">
+            <o:media mediatype="png" filename="Announcement_thumbnail.png" source="[TARGETDIR]uoftemplate\Announcement_thumbnail.png"/>
+            <o:preview filename="Announcement_preview.png" source="[TARGETDIR]uoftemplate\Announcement_preview.png"/>
+          </o:featuredtemplate>
+
+      <!-- 4. Decision-->
+          <o:featuredtemplate source="[TARGETDIR]uoftemplate\Decision.dotx" title="UOF-compatible Decision">
+            <o:media mediatype="png" filename="Decision_thumbnail.png" source="[TARGETDIR]uoftemplate\Decision_thumbnail.png"/>
+            <o:preview filename="Decision_preview.png" source="[TARGETDIR]uoftemplate\Decision_preview.png"/>
+          </o:featuredtemplate>
+
+      <!-- 5. letter_han-->
+          <o:featuredtemplate source="[TARGETDIR]uoftemplate\letter_han.dotx" title="UOF-compatible Letter">
+            <o:media mediatype="png" filename="letter_han_thumbnail.png" source="[TARGETDIR]uoftemplate\letter_han_thumbnail.png"/>
+            <o:preview filename="letter_han_preview.png" source="[TARGETDIR]uoftemplate\letter_han_preview.png"/>
+          </o:featuredtemplate>
+
+      <!-- 6. Opinion-->
+          <o:featuredtemplate source="[TARGETDIR]uoftemplate\Opinion.dotx" title="UOF-compatible Opinion">
+            <o:media mediatype="png" filename="Opinion_thumbnail.png" source="[TARGETDIR]uoftemplate\Opinion_thumbnail.png"/>
+            <o:preview filename="Opinion_preview.png" source="[TARGETDIR]uoftemplate\Opinion_preview.png"/>
+          </o:featuredtemplate>
+
+      <!-- 7. Reply-->
+          <o:featuredtemplate source="[TARGETDIR]uoftemplate\Reply.dotx" title="UOF-compatible Reply">
+            <o:media mediatype="png" filename="Reply_thumbnail.png" source="[TARGETDIR]uoftemplate\Reply_thumbnail.png"/>
+            <o:preview filename="Reply_preview.png" source="[TARGETDIR]uoftemplate\Reply_preview.png"/>
+          </o:featuredtemplate>
+
+      <!-- 8. Report-->
+          <o:featuredtemplate source="[TARGETDIR]uoftemplate\Report.dotx" title="UOF-compatible Report">
+            <o:media mediatype="png" filename="Report_thumbnail.png" source="[TARGETDIR]uoftemplate\Report_thumbnail.png"/>
+            <o:preview filename="Report_preview.png" source="[TARGETDIR]uoftemplate\Report_preview.png"/>
+          </o:featuredtemplate>
+
+      <!-- 9. Proposal -->
+          <o:featuredtemplate source="[TARGETDIR]uoftemplate\UOFProposal.dotx" title="UOF-compatible Proposal">
+            <o:media mediatype="png" filename="UOFProposalSmall.png" source="[TARGETDIR]uoftemplate\UOFProposalSmall.png"/>
+            <o:preview filename="UOFProposalBig.png" source="[TARGETDIR]uoftemplate\UOFProposalBig.png"/>
+          </o:featuredtemplate>
+          
+      <!-- 10. Apply -->
+          <o:featuredtemplate source="[TARGETDIR]uoftemplate\UOFApply.dotx" title="UOF-compatible Apply">
+            <o:media mediatype="png" filename="UOFApplySmall.png" source="[TARGETDIR]uoftemplate\UOFApplySmall.png"/>
+            <o:preview filename="UOFApplyBig.png" source="[TARGETDIR]uoftemplate\UOFApplyBig.png"/>
+          </o:featuredtemplate>
+          
+      <!-- 11. Notify -->
+          <o:featuredtemplate source="[TARGETDIR]uoftemplate\UOFNotify.dotx" title="UOF-compatible Notify">
+            <o:media mediatype="png" filename="UOFNotifySmall.png" source="[TARGETDIR]uoftemplate\UOFNotifySmall.png"/>
+            <o:preview filename="UOFNotifyBig.png" source="[TARGETDIR]uoftemplate\UOFNotifyBig.png"/>
+          </o:featuredtemplate>
+          
+      <!-- 12. aviso -->
+          <o:featuredtemplate source="[TARGETDIR]uoftemplate\UOFaviso.dotx" title="UOF-compatible Bulletin">
+            <o:media mediatype="png" filename="UOFavisoSmall.png" source="[TARGETDIR]uoftemplate\UOFavisoSmall.png"/>
+            <o:preview filename="UOFavisoBig.png" source="[TARGETDIR]uoftemplate\UOFavisoBig.png"/>
+          </o:featuredtemplate>
+          
+      <!-- 13. Announce -->
+          <o:featuredtemplate source="[TARGETDIR]uoftemplate\UOFAnnounce.dotx" title="UOF-compatible Announce">
+            <o:media mediatype="png" filename="UOFAnnounceSmall.png" source="[TARGETDIR]uoftemplate\UOFAnnounceSmall.png"/>
+            <o:preview filename="UOFAnnounceBig.png" source="[TARGETDIR]uoftemplate\UOFAnnounceBig.png"/>
+          </o:featuredtemplate>
+          
+      <!-- 16. Meetingreport -->
+          <o:featuredtemplate source="[TARGETDIR]uoftemplate\UOFMeetingreport.dotx" title="UOF-compatible Meetingreport">
+            <o:media mediatype="png" filename="UOFMeetingreportSmall.png" source="[TARGETDIR]uoftemplate\UOFMeetingreportSmall.png"/>
+            <o:preview filename="UOFMeetingreportBig.png" source="[TARGETDIR]uoftemplate\UOFMeetingreportBig.png"/>
+          </o:featuredtemplate>
+          
+      <!-- 17. Resolution -->
+          <o:featuredtemplate source="[TARGETDIR]uoftemplate\UOFResolution.dotx" title="UOF-compatible Resolution">
+            <o:media mediatype="png" filename="UOFResolutionSmall.png" source="[TARGETDIR]uoftemplate\UOFResolutionSmall.png"/>
+            <o:preview filename="UOFResolutionBig.png" source="[TARGETDIR]uoftemplate\UOFResolutionBig.png"/>
+          </o:featuredtemplate>
+
+     
+ 
+
+        </o:featuredtemplates>
+    </o:application>
+</o:featuredcontent>

@@ -1,0 +1,23 @@
+HKCR
+{
+	UofTranslator2010.WordConverter2010.1 = s 'WordConverter2010 Class'
+	{
+		CLSID = s '{6970F0A4-88D6-4BAE-BC69-5C40E3598336}'
+	}
+	UofTranslator2010.WordConverter2010 = s 'WordConverter2010 Class'
+	{
+		CLSID = s '{6970F0A4-88D6-4BAE-BC69-5C40E3598336}'
+		CurVer = s 'UofTranslator2010.WordConverter2010.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {6970F0A4-88D6-4BAE-BC69-5C40E3598336} = s 'WordConverter2010 Class'
+		{
+			ProgID = s 'UofTranslator2010.WordConverter2010.1'
+			VersionIndependentProgID = s 'UofTranslator2010.WordConverter2010'
+			ForceRemove 'Programmable'
+			LocalServer32 = s '%MODULE%'
+			'TypeLib' = s '{AAE59A92-0CFE-4DC7-B386-35DE786B90FB}'
+		}
+	}
+}

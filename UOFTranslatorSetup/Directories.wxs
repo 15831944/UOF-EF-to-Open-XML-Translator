@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.microsoft.com/wix/2006/wi WiX.xsd">
+	<Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      
+      <!--program folder-->
+      <Directory Id="ProgramFilesFolder">
+        
+        <!--parent fold of uof translators, all versions of translators would be installed here-->
+        <Directory Id="INSTALLPARENTFOLDER" Name="UOF Working Group">
+        
+          <!--install folder-->
+          <Directory Id="INSTALLFOLDER" Name="UOFTranslator5.1">
+            
+            <!--log config folder-->
+            <Directory Id="LOGCONFIGFOLDER" Name="conf"/>
+
+            <!--uof template file folder-->
+            <Directory Id="WORDTEMPLATEFOLDER" Name="uoftemplate"/>
+              <!--<Directory Id="WORDTEMPLATEFOLDER" Name="wordTemplate"/>
+            </Directory>-->
+            <!--<Directory Id="NETTEMPLATEFOLDER" Name="uofnettemplate"/>-->
+            <!--language resource folder-->
+            <Directory Id="EN" Name="en"/>
+            <Directory Id="ENUS" Name="en-US"/>
+            <Directory Id="CHS" Name="zh-CHS"/>
+          </Directory>
+        
+        </Directory>
+      </Directory>
+
+      <!--shortcut-->
+      <Directory Id="ProgramMenuFolder">
+
+        <Directory Id="UOFTranslator51ShortcutFolder" Name="UOF-OpenXML Translator5.1"/>
+        
+      </Directory>
+
+      <Directory Id="SystemFolder">
+        
+      </Directory>
+
+      <Directory Id="WindowsFolder">
+        <Directory Id="System32" Name="System32"/>
+      </Directory>
+      
+    </Directory>
+	</Fragment>
+</Wix>

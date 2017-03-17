@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeTranslator classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeTranslator architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeTranslator
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Border_Style_in_Paragarph" xml:space="preserve">
+    <value>Border Style in Paragarph</value>
+  </data>
+  <data name="Capital_Letter_Style_in_Paragraph" xml:space="preserve">
+    <value>Capital Letter Style in Paragraph</value>
+  </data>
+  <data name="day_month_year_information_in_Paragraph" xml:space="preserve">
+    <value>Day month year information in Paragraph</value>
+  </data>
+  <data name="Dropcap_Style_in_Paragraph" xml:space="preserve">
+    <value>Dropcap Style in Paragraph</value>
+  </data>
+  <data name="Enclose_Characters_in_Paragraph" xml:space="preserve">
+    <value>Enclose Characters in Paragraph</value>
+  </data>
+  <data name="endnotePr_and_numRestart_in_Section" xml:space="preserve">
+    <value>EndnotePr and numRestart in Section</value>
+  </data>
+  <data name="endnotePr_and_pos_in_Section" xml:space="preserve">
+    <value>EndnotePr and pos in Section</value>
+  </data>
+  <data name="floating_table_relative_horizontal_position_in_Table" xml:space="preserve">
+    <value>Floating table relative horizontal position in_Table</value>
+  </data>
+  <data name="floating_table_relative_vertical_position_in_Table" xml:space="preserve">
+    <value>Floating table relative vertical position in Table</value>
+  </data>
+  <data name="Font_Style" xml:space="preserve">
+    <value>Font Style</value>
+  </data>
+  <data name="footnotePr_and_numRestart_in_Section" xml:space="preserve">
+    <value>FootnotePr and numRestart in Section</value>
+  </data>
+  <data name="footnotePr_and_pos_in_Section" xml:space="preserve">
+    <value>FootnotePr and pos in_Section</value>
+  </data>
+  <data name="Highlight_Style_in_Paragraph" xml:space="preserve">
+    <value>Highlight Style in Paragraph</value>
+  </data>
+  <data name="Justification_Style_in_Paragraph" xml:space="preserve">
+    <value>Justification style in paragraph</value>
+  </data>
+  <data name="lnNumType_and_lineType_in_Section_Properties" xml:space="preserve">
+    <value>Line Number Type and line Type in Section Properties</value>
+  </data>
+  <data name="lnNumType_and_lnNumTypeRestart_in_Section_Properties" xml:space="preserve">
+    <value>Line Number Type and lnNumTypeRestart in Section Properties</value>
+  </data>
+  <data name="lvl_and_numFmt_in_Numbering" xml:space="preserve">
+    <value>Number format in Numbering</value>
+  </data>
+  <data name="lvl_and_suff_in_Numbering" xml:space="preserve">
+    <value>Suffix of number in Numbering</value>
+  </data>
+  <data name="numFmt_and_val_in_Section_Properties" xml:space="preserve">
+    <value>Numberformat in Section Properties</value>
+  </data>
+  <data name="pgNumType_and_chapStyle_in_Section" xml:space="preserve">
+    <value>Page number type and chapter style in section properties</value>
+  </data>
+  <data name="Phonetic_Guide_Style_Paragraph" xml:space="preserve">
+    <value>Phonetic Guide Style Paragraph</value>
+  </data>
+  <data name="shading_for_paragraphs_or_tables_or_phrases" xml:space="preserve">
+    <value>Shading for paragraphs or tables or phrases</value>
+  </data>
+  <data name="Symbol_Characters_Paragraph" xml:space="preserve">
+    <value>Symbol Characters Paragraph</value>
+  </data>
+  <data name="table_border_style_in_Table" xml:space="preserve">
+    <value>Table border style in Table</value>
+  </data>
+  <data name="Table_Style" xml:space="preserve">
+    <value>Table Style</value>
+  </data>
+  <data name="Text_Effect_or_Math_Formula_in_Paragraph" xml:space="preserve">
+    <value>Text Effect or Math Formula in Paragraph</value>
+  </data>
+  <data name="textDirection_in_Section" xml:space="preserve">
+    <value>TextDirection in Section</value>
+  </data>
+  <data name="Theme_Font_Style" xml:space="preserve">
+    <value>Theme Font Style</value>
+  </data>
+  <data name="vertically_merged_cell_in_Table" xml:space="preserve">
+    <value>Vertically merged cell in Table</value>
+  </data>
+</root>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<o:featuredcontent lcid="[languageID]" xmlns:o="urn:schemas-microsoft-com:office:office">
+  <o:application id="WD">
+    <o:featuredtemplates startdate="2007-01-01" enddate="2030-12-31">
+      <!-- MEMO -->
+      <o:featuredtemplate source="[TARGETURL]ODFMemo.dotx" title="UOF-compatible memo">
+        <o:media mediatype="png" filename="UOFMemo.png" source="[TARGETDIR]\ODFMemo.png" />
+        <o:preview filename="UOFMemoBig.png" source="[TARGETDIR]\ODFMemoBig.png" />
+      </o:featuredtemplate>
+      <!-- REPORT -->
+      <o:featuredtemplate source="[TARGETURL]ODFReport.dotx" title="UOF-compatible report">
+        <o:media mediatype="png" filename="UOFReport.png" source="[TARGETDIR]\ODFReport.png" />
+        <o:preview filename="UOFReportBig.png" source="[TARGETDIR]\ODFReportBig.png" />
+      </o:featuredtemplate>
+    </o:featuredtemplates>
+  </o:application>
+</o:featuredcontent>

@@ -1,0 +1,422 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4747FF84-856F-497C-8BA6-47246B2D7E46}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Act.UofTranslator.UofTranslatorStrictLib</RootNamespace>
+    <AssemblyName>UofTranslatorStrictLib</AssemblyName>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>aa.snk</AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IUofCompressAdapter.cs" />
+    <Compile Include="OoxToUofPostProcessorOnePresentation.cs" />
+    <Compile Include="OoxToUofPostProcessorOneSpreadsheet.cs" />
+    <Compile Include="resources\message-en.Designer.cs" />
+    <Compile Include="resources\message-zh-CHS.Designer.cs" />
+    <Compile Include="UofToOoxPreProcessorOnePresentation.cs" />
+    <Compile Include="UofToOoxPreProcessorOneSpreadSheet.cs" />
+    <Compile Include="UofToOoxPreProcessorTwoPresentation.cs" />
+    <Compile Include="UofToOoxPreProcessorTwoSpreadSheet.cs" />
+    <Compile Include="UOFTranslator.cs" />
+    <Compile Include="AbstractProcessor.cs" />
+    <Compile Include="OoxToUofPreProcessorOneSpreadSheet.cs" />
+    <Compile Include="SpreadsheetTranslator.cs" />
+    <Compile Include="TranslatorFactory.cs" />
+    <Compile Include="PresentationTranslator.cs" />
+    <Compile Include="OOXToUOFPreProcessorOnePresentation.cs" />
+    <Compile Include="UofZipWriter.cs" />
+    <Compile Include="WordTranslator.cs" />
+    <Compile Include="TranslatorConstants.cs" />
+    <Compile Include="IUOFTranslator.cs" />
+    <Compile Include="IProcessor.cs" />
+    <Compile Include="NotAnOoxDocumentException.cs" />
+    <Compile Include="NotAnUofDocumentException.cs" />
+    <Compile Include="OoxToUofPostProcessorOneWord.cs" />
+    <Compile Include="OoxToUofPreProcessorOneWord.cs" />
+    <Compile Include="OoxZipResolver.cs" />
+    <Compile Include="OoxZipWriter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResourceResolver.cs" />
+    <Compile Include="UofEventArgs.cs" />
+    <Compile Include="UofToOoxPreProcessorOneWord.cs" />
+    <Compile Include="UofToOoxPreProcessorThreeWord.cs" />
+    <Compile Include="UofToOoxPreProcessorTwoWord.cs" />
+    <Compile Include="UofWriter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="conf\config.xml" />
+    <Content Include="excel_oox2uof.dll" />
+    <Content Include="excel_uof2oox.dll" />
+    <Content Include="ppt_oox2uof.dll" />
+    <Content Include="ppt_uof2oox.dll" />
+    <EmbeddedResource Include="resources\Excel\uof2oox\chart.xsl" />
+    <EmbeddedResource Include="resources\Excel\uof2oox\chartArea.xsl" />
+    <EmbeddedResource Include="resources\Excel\uof2oox\common.xsl" />
+    <EmbeddedResource Include="resources\Excel\uof2oox\contentTypes.xsl" />
+    <EmbeddedResource Include="resources\Excel\uof2oox\drawing.xsl" />
+    <EmbeddedResource Include="resources\Excel\uof2oox\hyperlink.xsl" />
+    <EmbeddedResource Include="resources\Excel\uof2oox\metadata.xsl" />
+    <EmbeddedResource Include="resources\Excel\uof2oox\package_relationships.xsl" />
+    <EmbeddedResource Include="resources\Excel\uof2oox\posttreatmentStep1.xsl" />
+    <EmbeddedResource Include="resources\Excel\uof2oox\pPr.xsl" />
+    <EmbeddedResource Include="resources\Excel\uof2oox\predefined.xsl" />
+    <EmbeddedResource Include="resources\Excel\uof2oox\pretreatment.xsl" />
+    <EmbeddedResource Include="resources\Excel\uof2oox\relationships.xsl" />
+    <EmbeddedResource Include="resources\Excel\uof2oox\sharedStrings.xsl" />
+    <EmbeddedResource Include="resources\Excel\uof2oox\sheet.xsl" />
+    <EmbeddedResource Include="resources\Excel\uof2oox\style.xsl" />
+    <EmbeddedResource Include="resources\Excel\uof2oox\theme.xsl" />
+    <EmbeddedResource Include="resources\Excel\uof2oox\txBody.xsl" />
+    <EmbeddedResource Include="resources\Excel\uof2oox\uof2oox.xsl" />
+    <EmbeddedResource Include="resources\Excel\uof2oox\workbook.xsl" />
+    <EmbeddedResource Include="resources\Powerpoint\uof2oox\animation.xsl" />
+    <EmbeddedResource Include="resources\Powerpoint\uof2oox\comments.xslt" />
+    <EmbeddedResource Include="resources\Powerpoint\uof2oox\contentTypes.xsl" />
+    <EmbeddedResource Include="resources\Powerpoint\uof2oox\cSld.xsl" />
+    <EmbeddedResource Include="resources\Powerpoint\uof2oox\handoutMasterRels.xsl" />
+    <EmbeddedResource Include="resources\Powerpoint\uof2oox\hyperlink.xsl" />
+    <EmbeddedResource Include="resources\Powerpoint\uof2oox\LayoutRels.xsl" />
+    <EmbeddedResource Include="resources\Powerpoint\uof2oox\metadata.xsl" />
+    <EmbeddedResource Include="resources\Powerpoint\uof2oox\nMasterRels1.xsl" />
+    <EmbeddedResource Include="resources\Powerpoint\uof2oox\noteMasterRels.xsl" />
+    <EmbeddedResource Include="resources\Powerpoint\uof2oox\noteRels.xsl" />
+    <EmbeddedResource Include="resources\Powerpoint\uof2oox\numbering.xsl" />
+    <EmbeddedResource Include="resources\Powerpoint\uof2oox\package_relationships.xsl" />
+    <EmbeddedResource Include="resources\Powerpoint\uof2oox\pPr.xsl" />
+    <EmbeddedResource Include="resources\Powerpoint\uof2oox\slideMasterRels.xsl" />
+    <EmbeddedResource Include="resources\Powerpoint\uof2oox\SlideRels.xsl" />
+    <EmbeddedResource Include="resources\Powerpoint\uof2oox\table.xsl" />
+    <EmbeddedResource Include="resources\Powerpoint\uof2oox\txBody.xsl" />
+    <EmbeddedResource Include="resources\Powerpoint\uof2oox\uof2oox.xsl" />
+    <EmbeddedResource Include="resources\Powerpoint\uof2oox\uof2ooxpre.xslt" />
+    <EmbeddedResource Include="resources\word\uof2oox\common.xsl" />
+    <EmbeddedResource Include="resources\word\uof2oox\contentTypes.xsl" />
+    <EmbeddedResource Include="resources\word\uof2oox\document.xsl" />
+    <EmbeddedResource Include="resources\word\uof2oox\footnote-endnote.xsl" />
+    <EmbeddedResource Include="resources\word\uof2oox\header-footer.xsl" />
+    <EmbeddedResource Include="resources\word\uof2oox\hyperlinks.xsl" />
+    <EmbeddedResource Include="resources\word\uof2oox\Image\PatternFill\imagePattenFill1.gif" />
+    <EmbeddedResource Include="resources\word\uof2oox\Image\PatternFill\imagePattenFill10.gif" />
+    <EmbeddedResource Include="resources\word\uof2oox\Image\PatternFill\imagePattenFill11.gif" />
+    <EmbeddedResource Include="resources\word\uof2oox\Image\PatternFill\imagePattenFill12.gif" />
+    <EmbeddedResource Include="resources\word\uof2oox\Image\PatternFill\imagePattenFill13.gif" />
+    <EmbeddedResource Include="resources\word\uof2oox\Image\PatternFill\imagePattenFill14.gif" />
+    <EmbeddedResource Include="resources\word\uof2oox\Image\PatternFill\imagePattenFill15.gif" />
+    <EmbeddedResource Include="resources\word\uof2oox\Image\PatternFill\imagePattenFill16.gif" />
+    <EmbeddedResource Include="resources\word\uof2oox\Image\PatternFill\imagePattenFill17.gif" />
+    <EmbeddedResource Include="resources\word\uof2oox\Image\PatternFill\imagePattenFill18.gif" />
+    <EmbeddedResource Include="resources\word\uof2oox\Image\PatternFill\imagePattenFill19.gif" />
+    <EmbeddedResource Include="resources\word\uof2oox\Image\PatternFill\imagePattenFill2.gif" />
+    <EmbeddedResource Include="resources\word\uof2oox\Image\PatternFill\imagePattenFill20.gif" />
+    <EmbeddedResource Include="resources\word\uof2oox\Image\PatternFill\imagePattenFill21.gif" />
+    <EmbeddedResource Include="resources\word\uof2oox\Image\PatternFill\imagePattenFill22.gif" />
+    <EmbeddedResource Include="resources\word\uof2oox\Image\PatternFill\imagePattenFill23.gif" />
+    <EmbeddedResource Include="resources\word\uof2oox\Image\PatternFill\imagePattenFill24.gif" />
+    <EmbeddedResource Include="resources\word\uof2oox\Image\PatternFill\imagePattenFill25.gif" />
+    <EmbeddedResource Include="resources\word\uof2oox\Image\PatternFill\imagePattenFill26.gif" />
+    <EmbeddedResource Include="resources\word\uof2oox\Image\PatternFill\imagePattenFill27.gif" />
+    <EmbeddedResource Include="resources\word\uof2oox\Image\PatternFill\imagePattenFill28.gif" />
+    <EmbeddedResource Include="resources\word\uof2oox\Image\PatternFill\imagePattenFill29.gif" />
+    <EmbeddedResource Include="resources\word\uof2oox\Image\PatternFill\imagePattenFill3.gif" />
+    <EmbeddedResource Include="resources\word\uof2oox\Image\PatternFill\imagePattenFill30.gif" />
+    <EmbeddedResource Include="resources\word\uof2oox\Image\PatternFill\imagePattenFill31.gif" />
+    <EmbeddedResource Include="resources\word\uof2oox\Image\PatternFill\imagePattenFill32.gif" />
+    <EmbeddedResource Include="resources\word\uof2oox\Image\PatternFill\imagePattenFill33.gif" />
+    <EmbeddedResource Include="resources\word\uof2oox\Image\PatternFill\imagePattenFill34.gif" />
+    <EmbeddedResource Include="resources\word\uof2oox\Image\PatternFill\imagePattenFill35.gif" />
+    <EmbeddedResource Include="resources\word\uof2oox\Image\PatternFill\imagePattenFill36.gif" />
+    <EmbeddedResource Include="resources\word\uof2oox\Image\PatternFill\imagePattenFill37.gif" />
+    <EmbeddedResource Include="resources\word\uof2oox\Image\PatternFill\imagePattenFill38.gif" />
+    <EmbeddedResource Include="resources\word\uof2oox\Image\PatternFill\imagePattenFill39.gif" />
+    <EmbeddedResource Include="resources\word\uof2oox\Image\PatternFill\imagePattenFill4.gif" />
+    <EmbeddedResource Include="resources\word\uof2oox\Image\PatternFill\imagePattenFill40.gif" />
+    <EmbeddedResource Include="resources\word\uof2oox\Image\PatternFill\imagePattenFill41.gif" />
+    <EmbeddedResource Include="resources\word\uof2oox\Image\PatternFill\imagePattenFill42.gif" />
+    <EmbeddedResource Include="resources\word\uof2oox\Image\PatternFill\imagePattenFill43.gif" />
+    <EmbeddedResource Include="resources\word\uof2oox\Image\PatternFill\imagePattenFill44.gif" />
+    <EmbeddedResource Include="resources\word\uof2oox\Image\PatternFill\imagePattenFill45.gif" />
+    <EmbeddedResource Include="resources\word\uof2oox\Image\PatternFill\imagePattenFill46.gif" />
+    <EmbeddedResource Include="resources\word\uof2oox\Image\PatternFill\imagePattenFill47.gif" />
+    <EmbeddedResource Include="resources\word\uof2oox\Image\PatternFill\imagePattenFill48.gif" />
+    <EmbeddedResource Include="resources\word\uof2oox\Image\PatternFill\imagePattenFill5.gif" />
+    <EmbeddedResource Include="resources\word\uof2oox\Image\PatternFill\imagePattenFill6.gif" />
+    <EmbeddedResource Include="resources\word\uof2oox\Image\PatternFill\imagePattenFill7.gif" />
+    <EmbeddedResource Include="resources\word\uof2oox\Image\PatternFill\imagePattenFill8.gif" />
+    <EmbeddedResource Include="resources\word\uof2oox\Image\PatternFill\imagePattenFill9.gif" />
+    <EmbeddedResource Include="resources\word\uof2oox\metadata.xsl" />
+    <EmbeddedResource Include="resources\word\uof2oox\numbering.xsl" />
+    <EmbeddedResource Include="resources\word\uof2oox\object.xsl" />
+    <EmbeddedResource Include="resources\word\uof2oox\package_relationships.xsl" />
+    <EmbeddedResource Include="resources\word\uof2oox\paragraph.xsl" />
+    <EmbeddedResource Include="resources\word\uof2oox\preprocessing1.xsl" />
+    <EmbeddedResource Include="resources\word\uof2oox\preprocessing2.xsl" />
+    <EmbeddedResource Include="resources\word\uof2oox\preprocessing3.xsl" />
+    <EmbeddedResource Include="resources\word\uof2oox\region.xsl" />
+    <EmbeddedResource Include="resources\word\uof2oox\run.xsl" />
+    <EmbeddedResource Include="resources\word\uof2oox\sectPr.xsl" />
+    <EmbeddedResource Include="resources\word\uof2oox\settings.xsl" />
+    <EmbeddedResource Include="resources\word\uof2oox\styles.xsl" />
+    <EmbeddedResource Include="resources\word\uof2oox\table.xsl" />
+    <EmbeddedResource Include="resources\word\uof2oox\uof2oox-compute-size.xsl" />
+    <EmbeddedResource Include="resources\word\uof2oox\uof2oox.xsl" />
+    <EmbeddedResource Include="resources\word\uof2oox\uof2ooxpre.xsl" />
+    <EmbeddedResource Include="resources\word\uof2oox\wordpart_relationships.xsl" />
+    <EmbeddedResource Include="resources\word\oox2uof\bookmark.xsl" />
+    <EmbeddedResource Include="Properties\Resources.resx" />
+    <EmbeddedResource Include="resources\Powerpoint\oox2uof\post-processing.xslt" />
+    <EmbeddedResource Include="resources\word\oox2uof\extend.xsl">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\Powerpoint\oox2uof\animation.xsl">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\Powerpoint\oox2uof\CommenRule.xsl">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\Powerpoint\oox2uof\fill.xsl">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\Powerpoint\oox2uof\hyperlinks.xsl">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\Powerpoint\oox2uof\Master.xsl">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\Powerpoint\oox2uof\metadata.xsl" />
+    <EmbeddedResource Include="resources\Powerpoint\oox2uof\numbering.xsl" />
+    <EmbeddedResource Include="resources\Powerpoint\oox2uof\oox2uof.xsl">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\Powerpoint\oox2uof\p.xsl">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\Powerpoint\oox2uof\ph.xsl">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\Powerpoint\oox2uof\PPr-commen.xsl">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\Powerpoint\oox2uof\pre1.xsl">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\Powerpoint\oox2uof\pre2.xsl">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\Powerpoint\oox2uof\shapes.xsl">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\Powerpoint\oox2uof\sldLayout.xsl">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\Powerpoint\oox2uof\slide.xsl">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\Powerpoint\oox2uof\styles.xsl">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\Powerpoint\oox2uof\table.xsl">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\Powerpoint\oox2uof\txStyles.xsl">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\word\oox2uof\graphics.xsl">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\word\oox2uof\hyperlinks.xsl">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\Excel\oox2uof\hyperlinks.xsl" />
+    <EmbeddedResource Include="resources\Excel\oox2uof\metadata.xsl" />
+    <EmbeddedResource Include="resources\Excel\oox2uof\metadata2.xsl" />
+    <EmbeddedResource Include="resources\Excel\oox2uof\object.xsl" />
+    <EmbeddedResource Include="resources\Excel\oox2uof\oox2uof.xsl" />
+    <EmbeddedResource Include="resources\Excel\oox2uof\pretreatment.xsl" />
+    <EmbeddedResource Include="resources\Excel\oox2uof\rowtrans.xslt" />
+    <EmbeddedResource Include="resources\Excel\oox2uof\sheetbreak.xsl" />
+    <EmbeddedResource Include="resources\Excel\oox2uof\sheetcommon.xsl" />
+    <EmbeddedResource Include="resources\Excel\oox2uof\sheetfilter.xsl" />
+    <EmbeddedResource Include="resources\Excel\oox2uof\sheetprop.xsl" />
+    <EmbeddedResource Include="resources\Excel\oox2uof\sheets.xsl">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\Excel\oox2uof\style.xsl">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\Excel\oox2uof\table.xsl" />
+    <EmbeddedResource Include="resources\Excel\oox2uof\电子表格预处理.xsl" />
+    <EmbeddedResource Include="resources\message-en.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\message-zh-CHS.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\word\oox2uof\common.xsl">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\word\oox2uof\endnote-footnote.xsl">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\word\oox2uof\field.xsl">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\word\oox2uof\footer.xsl" />
+    <EmbeddedResource Include="resources\word\oox2uof\header-footer.xsl">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\word\oox2uof\header.xsl">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\word\oox2uof\metadata.xsl">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\word\oox2uof\numbering.xsl">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\word\oox2uof\object.xsl">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\word\oox2uof\oox2uof-compute-size.xsl" />
+    <EmbeddedResource Include="resources\word\oox2uof\oox2uof.xsl">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\word\oox2uof\paragraph.xsl">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\word\oox2uof\paragraph1220.xsl" />
+    <EmbeddedResource Include="resources\word\oox2uof\pretreatmentStep1.xsl">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\word\oox2uof\pretreatmentStep2.xsl">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\word\oox2uof\pretreatmentStep3.xsl">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\word\oox2uof\region.xsl">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\word\oox2uof\revisions.xsl">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\word\oox2uof\sectPr.xsl">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\word\oox2uof\source.xml" />
+    <EmbeddedResource Include="resources\word\oox2uof\styles.xsl">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\word\oox2uof\table.xsl">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="aa.snk" />
+    <None Include="conf\log4net.config" />
+    <None Include="resources\Powerpoint\compile_ppt.bat" />
+    <None Include="resources\word\uof2oox\wordpart_relationships.xsl.old" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UofZipUtils\UofZipUtils.csproj">
+      <Project>{3349702F-5C33-460D-9536-D5E7F148C171}</Project>
+      <Name>UofZipUtils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

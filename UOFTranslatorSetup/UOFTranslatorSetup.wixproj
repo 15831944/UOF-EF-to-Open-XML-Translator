@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>3.7</ProductVersion>
+    <ProjectGuid>{feb9f70e-5c90-4e02-bf6d-51684e3b75f0}</ProjectGuid>
+    <SchemaVersion>2.0</SchemaVersion>
+    <OutputName>UOFTranslator5</OutputName>
+    <OutputType>Package</OutputType>
+    <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' AND '$(MSBuildExtensionsPath32)' != '' ">$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
+    <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' ">$(MSBuildExtensionsPath)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
+    <Name>UOFTranslatorSetup</Name>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <DefineConstants>Debug</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <OutputPath>bin\$(Platform)\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Platform)\$(Configuration)\</IntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <OutputPath>bin\$(Platform)\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Platform)\$(Configuration)\</IntermediateOutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="CustomActions.wxs" />
+    <Compile Include="Directories.wxs" />
+    <Compile Include="NecessaryFiles.wxs" />
+    <Compile Include="Product.wxs" />
+    <Compile Include="RegistryItems.wxs" />
+    <Compile Include="WorldTemplateComponents.wxs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Lib\log4net.dll" />
+    <Content Include="Lib\Microsoft.Office.Interop.Word.dll" />
+    <Content Include="Lib\Microsoft.Vbe.Interop.dll" />
+    <Content Include="Lib\office.dll" />
+    <Content Include="Lib\stdole.dll" />
+    <Content Include="Lib\X64\log4net.dll" />
+    <Content Include="Lib\X64\zlibwapi.dll" />
+    <Content Include="Lib\zlibwapi.dll" />
+    <Content Include="uof.ico" />
+    <Content Include="UOFTranslator51UserGuide.docx" />
+    <Content Include="wix.xsd" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AtlUofTranslatorDll\AtlUofTranslatorDll.csproj">
+      <Name>AtlUofTranslatorDll</Name>
+      <Project>{924f1792-1740-4c13-9259-e708c62682d0}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\ConfigManager\ConfigManager.csproj">
+      <Name>ConfigManager</Name>
+      <Project>{57f8f2e7-e2c4-4175-bbea-8bb162bdd56f}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\CustomSetupActions\CustomSetupActions.csproj">
+      <Name>CustomSetupActions</Name>
+      <Project>{8b15cc07-86ad-4f07-a8f5-e829af70cb74}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\TranslatorMgr\TranslatorMgr.csproj">
+      <Name>TranslatorMgr</Name>
+      <Project>{9126e4ac-78f0-4d6f-9e22-aeb2435e4452}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\UofAddinLib\UofAddinLib.csproj">
+      <Name>UofAddinLib</Name>
+      <Project>{5af3878d-e3b1-4662-935b-cf66b0998fcc}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\UofCmdConverter\UofCmdConverter.csproj">
+      <Name>UofCmdConverter</Name>
+      <Project>{7c66f58d-ce13-447d-9325-03d5dee81945}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\UofTranslator2010\UofTranslator2010.vcxproj">
+      <Name>UofTranslator2010</Name>
+      <Project>{4cce541b-3cfe-4fd9-b8cd-02f5fb358fe4}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\UofTranslatorLib\UofTranslatorLib.csproj">
+      <Name>UofTranslatorLib</Name>
+      <Project>{5e8b4382-a99c-4ef2-b135-2f01df88f39f}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\UOFTranslatorShellExtUI\UofStdConverter.csproj">
+      <Name>UofStdConverter</Name>
+      <Project>{e7ed5149-2f49-47d6-9a65-243331567fd6}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\UOFTranslatorShellExt\UofShellExt.csproj">
+      <Name>UofShellExt</Name>
+      <Project>{3b43159e-5a75-41f1-9e5a-e7bff1ca47c7}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\UofTranslatorShell\UofTranslatorShell.csproj">
+      <Name>UofTranslatorShell</Name>
+      <Project>{03f9ca52-4343-466d-abd3-32251f3969f6}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\UofTranslatorStrictLib\UofTranslatorStrictLib.csproj">
+      <Name>UofTranslatorStrictLib</Name>
+      <Project>{4747ff84-856f-497c-8ba6-47246b2d7e46}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\UofZipUtils\UofZipUtils.csproj">
+      <Name>UofZipUtils</Name>
+      <Project>{3349702f-5c33-460d-9536-d5e7f148c171}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Lib" />
+    <Folder Include="Lib\X64" />
+  </ItemGroup>
+  <ItemGroup>
+    <WixExtension Include="WixUtilExtension">
+      <HintPath>$(WixExtDir)\WixUtilExtension.dll</HintPath>
+      <Name>WixUtilExtension</Name>
+    </WixExtension>
+    <WixExtension Include="WixUIExtension">
+      <HintPath>$(WixExtDir)\WixUIExtension.dll</HintPath>
+      <Name>WixUIExtension</Name>
+    </WixExtension>
+    <WixExtension Include="WixNetFxExtension">
+      <HintPath>$(WixExtDir)\WixNetFxExtension.dll</HintPath>
+      <Name>WixNetFxExtension</Name>
+    </WixExtension>
+  </ItemGroup>
+  <Import Project="$(WixTargetsPath)" />
+  <!--
+	To modify your build process, add your task inside one of the targets below and uncomment it.
+	Other similar extension points exist, see Wix.targets.
+	<Target Name="BeforeBuild">
+	</Target>
+	<Target Name="AfterBuild">
+	</Target>
+	-->
+</Project>
